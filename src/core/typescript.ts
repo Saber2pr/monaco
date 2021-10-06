@@ -6,7 +6,6 @@
  */
 import { getReferencePaths, resolvePath } from '../utils'
 import { monaco } from './monaco'
-import { tsxCompilerOptions } from './options'
 
 const typescriptDefaults = monaco.languages.typescript.typescriptDefaults
 export const addExtraLib = (content: string, filePath?: string) =>
@@ -28,18 +27,6 @@ export const updateCompilerOptions = (
     ...CompilerOptions,
     ...options,
   })
-}
-
-export const createJSXModel = (
-  content: string,
-  type: 'jsx' | 'tsx' = 'tsx'
-) => {
-  updateCompilerOptions(tsxCompilerOptions)
-  return monaco.editor.createModel(
-    content,
-    'typescript',
-    monaco.Uri.file(`input.${type}`)
-  )
 }
 
 const ExtraLibs = {}

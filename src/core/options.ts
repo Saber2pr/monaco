@@ -10,7 +10,7 @@ export const commonOptions = {
   tabSize: 2,
 }
 
-export const tsxCompilerOptions = {
+export const tsCompilerOptions = {
   jsx: monaco.languages.typescript.JsxEmit['React'],
   target: monaco.languages.typescript.ScriptTarget['ES5'],
   module: monaco.languages.typescript.ModuleKind['AMD'],

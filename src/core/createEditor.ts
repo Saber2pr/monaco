@@ -4,8 +4,9 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2021-10-06 15:25:47
  */
-import { commonOptions } from './options'
+import { commonOptions, tsCompilerOptions } from './options'
 import { IMonaco, monaco } from './monaco'
+import { updateCompilerOptions } from './typescript'
 
 export interface ModalFiles {
   [fileName: string]: {
@@ -26,6 +27,7 @@ export function createEditor(
         lang,
         monaco.Uri.file(fileName)
       )
+      // options
       model.updateOptions(commonOptions)
       return [fileName, { state: null, model }]
     })
@@ -37,15 +39,17 @@ export function createEditor(
     wordWrap: 'on',
     ...options,
   })
+  // tsconfig
+  updateCompilerOptions(tsCompilerOptions)
 
-  function setValue(fileName: string, value?: string) {
-    if (value === undefined) {
-      editor.setValue(fileName)
+  function setValue(value: string, fileName?: string) {
+    if (fileName === undefined) {
+      editor.setValue(value)
     } else {
       if (fileName in data) {
         data[fileName].model.setValue(value)
       } else {
-        throw new Error(`type ${fileName} is not found in data.`)
+        throw new Error(`file ${fileName} is not found in data.`)
       }
     }
   }
@@ -57,7 +61,7 @@ export function createEditor(
       if (fileName in data) {
         return data[fileName].model.getValue()
       } else {
-        throw new Error(`type ${fileName} is not found in data.`)
+        throw new Error(`file ${fileName} is not found in data.`)
       }
     }
   }
@@ -69,7 +73,7 @@ export function createEditor(
       throw new Error(`type ${fileName} is not found in data.`)
     }
   }
-  function setState(fileName: string, state) {
+  function setState(fileName: string, state: any) {
     if (fileName in data) {
       data[fileName].state = state
     } else {
@@ -96,7 +100,7 @@ export function createEditor(
       if (fileName in data) {
         return data[fileName].model
       } else {
-        throw new Error(`type ${fileName} is not found in data.`)
+        throw new Error(`file ${fileName} is not found in data.`)
       }
     }
   }
@@ -115,7 +119,7 @@ export function createEditor(
       editor.restoreViewState(data[fileName].state)
       editor.focus()
     } else {
-      throw new Error(`type ${fileName} is not found in data.`)
+      throw new Error(`file ${fileName} is not found in data.`)
     }
   }
 
