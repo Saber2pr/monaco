@@ -71,6 +71,7 @@
 				</a>
 				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createEditor</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/monaco&#039;</span>
 
+<span style="color: #008000">// 1. create editor</span>
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">editor</span><span style="color: #000000"> = </span><span style="color: #795E26">createEditor</span><span style="color: #000000">(</span>
 <span style="color: #000000">  </span><span style="color: #001080">dom</span><span style="color: #000000">,</span>
 <span style="color: #000000">  {</span>
@@ -82,8 +83,16 @@
 <span style="color: #000000">  { </span><span style="color: #001080">theme:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;vs-dark&#039;</span><span style="color: #000000"> }</span>
 <span style="color: #000000">)</span>
 
-<span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">getValue</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;input.jsx&#039;</span><span style="color: #000000">)</span>
-<span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">setValue</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;input.jsx&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;code&#039;</span><span style="color: #000000">)</span>
+<span style="color: #008000">// get current modal value</span>
+<span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">getValue</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// set value to current modal</span>
+<span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">setValue</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;code&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #008000">// change current modal</span>
+<span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">changeModel</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;input.css&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #008000">// get modal</span>
 <span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">getModel</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;input.jsx&#039;</span><span style="color: #000000">).</span><span style="color: #001080">onDidChangeContent</span>
 </code></pre>
 			</div>
