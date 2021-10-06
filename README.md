@@ -11,6 +11,7 @@ yarn add @saber2pr/monaco
 ```tsx
 import { createEditor } from '@saber2pr/monaco'
 
+// 1. create editor
 const editor = createEditor(
   dom,
   {
@@ -22,7 +23,15 @@ const editor = createEditor(
   { theme: 'vs-dark' }
 )
 
-editor.getValue('input.jsx')
-editor.setValue('input.jsx', 'code')
+// get current modal value
+editor.getValue()
+
+// set value to current modal
+editor.setValue('code')
+
+// change current modal
+editor.changeModel('input.css')
+
+// get modal
 editor.getModel('input.jsx').onDidChangeContent
 ```
