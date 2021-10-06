@@ -15,10 +15,8 @@ import { createEditor } from '@saber2pr/monaco'
 const editor = createEditor(
   dom,
   {
-    'input.jsx': {
-      lang: 'javascript',
-      content: localStorage.getItem('input'),
-    },
+    // file: file-content
+    'input.jsx': "const a = 'hello';",
   },
   { theme: 'vs-dark' }
 )

@@ -9,10 +9,7 @@ import { IMonaco, monaco } from './monaco'
 import { updateCompilerOptions } from './typescript'
 
 export interface ModalFiles {
-  [fileName: string]: {
-    lang: string
-    content: string
-  }
+  [fileName: string]: string
 }
 
 export function createEditor(
@@ -21,10 +18,10 @@ export function createEditor(
   options: Parameters<IMonaco['editor']['create']>[1] = {}
 ) {
   const data = Object.fromEntries(
-    Object.entries(modalFiles).map(([fileName, { lang, content }]) => {
+    Object.entries(modalFiles).map(([fileName, content]) => {
       const model = monaco.editor.createModel(
         content,
-        lang,
+        undefined, // infer from uri
         monaco.Uri.file(fileName)
       )
       // options
