@@ -65,6 +65,12 @@
 					<p>monaco</p>
 				</blockquote>
 				<pre><code class="language-bash"><span style="color: #000000">yarn add @saber2pr/monaco</span>
+<span style="color: #000000">yarn add monaco-editor-webpack-plugin@4.2.0 -D</span>
+</code></pre>
+				<p>webpack config:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">MonacoWebpackPlugin</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;monaco-editor-webpack-plugin&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">plugins</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">MonacoWebpackPlugin</span><span style="color: #000000">());</span>
 </code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3>Usage</h3>
