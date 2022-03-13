@@ -4,6 +4,15 @@
 
 ```bash
 yarn add @saber2pr/monaco
+yarn add monaco-editor-webpack-plugin@4.2.0 -D
+```
+
+webpack config:
+
+```js
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+
+config.plugins.push(new MonacoWebpackPlugin());
 ```
 
 ### Usage
