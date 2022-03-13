@@ -10,9 +10,9 @@ yarn add monaco-editor-webpack-plugin@4.2.0 -D
 webpack config:
 
 ```js
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
-config.plugins.push(new MonacoWebpackPlugin());
+config.plugins.push(new MonacoWebpackPlugin())
 ```
 
 ### Usage
@@ -49,7 +49,7 @@ editor.getModel('input.jsx').onDidChangeContent
 diffEditor:
 
 ```tsx
-import { createEditor } from '@saber2pr/monaco'
+import { createDiffEditor } from '@saber2pr/monaco'
 
 // container, oldText, newText, language
 createDiffEditor(dom, '{"name": "app"}', '{"name": "subApp"}', 'json')
