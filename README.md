@@ -8,6 +8,8 @@ yarn add @saber2pr/monaco
 
 ### Usage
 
+editor:
+
 ```tsx
 import { createEditor } from '@saber2pr/monaco'
 
@@ -17,6 +19,7 @@ const editor = createEditor(
   {
     // file: file-content
     'input.jsx': "const a = 'hello';",
+    'input.css': '#root { color: red; }',
   },
   { theme: 'vs-dark' }
 )
@@ -32,4 +35,13 @@ editor.changeModel('input.css')
 
 // get modal
 editor.getModel('input.jsx').onDidChangeContent
+```
+
+diffEditor:
+
+```tsx
+import { createEditor } from '@saber2pr/monaco'
+
+// container, oldText, newText, language
+createDiffEditor(dom, '{"name": "app"}', '{"name": "subApp"}', 'json')
 ```

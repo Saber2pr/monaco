@@ -10,10 +10,11 @@ import { monaco } from './monaco'
 export const createDiffEditor = (
   container: HTMLElement,
   original: string,
-  modified: string
+  modified: string,
+  language: string = 'text/plain'
 ) => {
-  const originalModel = monaco.editor.createModel(original, 'text/plain')
-  const modifiedModel = monaco.editor.createModel(modified, 'text/plain')
+  const originalModel = monaco.editor.createModel(original, language)
+  const modifiedModel = monaco.editor.createModel(modified, language)
 
   originalModel.updateOptions(commonOptions)
   modifiedModel.updateOptions(commonOptions)
