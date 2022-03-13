@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/Saber2pr/monaco/compare/v0.0.3...v0.0.4) (2022-03-13)
+
+
+### Features
+
+* diff editor language ([e99d349](https://github.com/Saber2pr/monaco/commit/e99d349bb5fa8613efb4a8664c08e13bf4b1932c))
+
 ### [0.0.3](https://github.com/Saber2pr/monaco/compare/v0.0.2...v0.0.3) (2021-10-06)
 
 ### [0.0.2](https://github.com/Saber2pr/monaco/compare/v0.0.1...v0.0.2) (2021-10-06)
