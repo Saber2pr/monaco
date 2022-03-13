@@ -75,6 +75,7 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3>Usage</h3>
 				</a>
+				<p>editor:</p>
 				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createEditor</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/monaco&#039;</span>
 
 <span style="color: #008000">// 1. create editor</span>
@@ -83,6 +84,7 @@
 <span style="color: #000000">  {</span>
 <span style="color: #000000">    </span><span style="color: #008000">// file: file-content</span>
 <span style="color: #000000">    </span><span style="color: #A31515">&#039;input.jsx&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;const a = &#039;hello&#039;;&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&#039;input.css&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;#root { color: red; }&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  },</span>
 <span style="color: #000000">  { </span><span style="color: #001080">theme:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;vs-dark&#039;</span><span style="color: #000000"> }</span>
 <span style="color: #000000">)</span>
@@ -98,6 +100,12 @@
 
 <span style="color: #008000">// get modal</span>
 <span style="color: #001080">editor</span><span style="color: #000000">.</span><span style="color: #795E26">getModel</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;input.jsx&#039;</span><span style="color: #000000">).</span><span style="color: #001080">onDidChangeContent</span>
+</code></pre>
+				<p>diffEditor:</p>
+				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createEditor</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/monaco&#039;</span>
+
+<span style="color: #008000">// container, oldText, newText, language</span>
+<span style="color: #795E26">createDiffEditor</span><span style="color: #000000">(</span><span style="color: #001080">dom</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;{&quot;name&quot;: &quot;app&quot;}&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;{&quot;name&quot;: &quot;subApp&quot;}&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;json&#039;</span><span style="color: #000000">)</span>
 </code></pre>
 			</div>
 		</div>
