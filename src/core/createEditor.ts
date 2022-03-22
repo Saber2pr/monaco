@@ -12,10 +12,12 @@ export interface ModalFiles {
   [fileName: string]: string
 }
 
+export type EditorOptions = Parameters<IMonaco['editor']['create']>[1]
+
 export function createEditor(
   editorContainer: HTMLElement,
   modalFiles: ModalFiles,
-  options: Parameters<IMonaco['editor']['create']>[1] = {}
+  options: EditorOptions = {}
 ) {
   const data = Object.fromEntries(
     Object.entries(modalFiles).map(([fileName, content]) => {
