@@ -8,7 +8,7 @@ import { KEYS } from '../constants'
 import { enClosure } from '../utils'
 import { ConsoleHook } from './hooks'
 
-interface HtmlContentFiles {
+export interface HtmlContentFiles {
   css?: string
   json?: string
   html?: string
