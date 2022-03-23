@@ -14,6 +14,7 @@ interface HtmlContentFiles {
   html?: string
   js?: string
   main?: string
+  mainRequireFunc?: string
 }
 
 export const makeSandCode = (
@@ -34,7 +35,9 @@ export const makeSandCode = (
     let ts_js = files.main
     if (ts_js.includes('define')) {
       ts_js = ts_js.replace(/define\(/, 'define("index",')
-      code += `<script>${ts_js};require(["index"])</script>`
+      code += `<script>${ts_js};require(["index"], ${
+        files.mainRequireFunc || ''
+      })</script>`
     } else {
       code += `<script>${enClosure(ts_js)}</script>`
     }
