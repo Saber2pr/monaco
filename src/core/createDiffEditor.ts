@@ -5,14 +5,16 @@
  * @Last Modified time: 2021-10-06 15:20:46
  */
 import { commonOptions } from './options'
-import { monaco } from './monaco'
+import loader from '@monaco-editor/loader'
+import { PromiseType } from './monaco'
 
-export const createDiffEditor = (
+export async function createDiffEditor(
   container: HTMLElement,
   original: string,
   modified: string,
   language: string = 'text/plain'
-) => {
+) {
+  const monaco = await loader.init()
   const originalModel = monaco.editor.createModel(original, language)
   const modifiedModel = monaco.editor.createModel(modified, language)
 
@@ -37,4 +39,4 @@ export const createDiffEditor = (
   }
 }
 
-export type DiffEditorAPI = ReturnType<typeof createDiffEditor>
+export type DiffEditorAPI = PromiseType<ReturnType<typeof createDiffEditor>>

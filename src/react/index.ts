@@ -1,2 +1,2 @@
-export * from './diff-editor';
-export * from './editor';
+export * from './diff-editor'
+export * from './editor'

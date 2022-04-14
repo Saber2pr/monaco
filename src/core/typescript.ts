@@ -5,13 +5,21 @@
  * @Last Modified time: 2021-10-06 15:13:33
  */
 import { getReferencePaths, resolvePath } from '../utils'
-import { monaco } from './monaco'
+import { CompilerOptions, IMonaco } from './monaco'
 
-const typescriptDefaults = monaco.languages.typescript.typescriptDefaults
-export const addExtraLib = (content: string, filePath?: string) =>
-  typescriptDefaults.addExtraLib(content, filePath)
+const getTypescriptDefaults = (monaco: IMonaco) =>
+  monaco.languages.typescript.typescriptDefaults
 
-export const compileTS = async (uri: InstanceType<typeof monaco.Uri>) => {
+export const addExtraLib = (
+  monaco: IMonaco,
+  content: string,
+  filePath?: string
+) => getTypescriptDefaults(monaco).addExtraLib(content, filePath)
+
+export const compileTS = async (
+  monaco: IMonaco,
+  uri: InstanceType<IMonaco['Uri']>
+) => {
   const tsWorker = await monaco.languages.typescript.getTypeScriptWorker()
   const client = await tsWorker(uri)
   const result = await client.getEmitOutput(uri.toString())
@@ -20,10 +28,11 @@ export const compileTS = async (uri: InstanceType<typeof monaco.Uri>) => {
 }
 
 export const updateCompilerOptions = (
-  options: Parameters<typeof typescriptDefaults.setCompilerOptions>[0]
+  monaco: IMonaco,
+  options: CompilerOptions
 ) => {
-  const CompilerOptions = typescriptDefaults.getCompilerOptions()
-  typescriptDefaults.setCompilerOptions({
+  const CompilerOptions = getTypescriptDefaults(monaco).getCompilerOptions()
+  getTypescriptDefaults(monaco).setCompilerOptions({
     ...CompilerOptions,
     ...options,
   })
@@ -31,6 +40,7 @@ export const updateCompilerOptions = (
 
 const ExtraLibs = {}
 export const addModuleDeclaration = async (
+  monaco: IMonaco,
   url: string,
   moduleName?: string
 ) => {
@@ -43,12 +53,12 @@ export const addModuleDeclaration = async (
 
   const paths = getReferencePaths(text)
   await Promise.all(
-    paths.map(path => addModuleDeclaration(resolvePath(url, path)))
+    paths.map(path => addModuleDeclaration(monaco, resolvePath(url, path)))
   )
 
   const wrapped = moduleName
     ? `declare module "${moduleName}" { ${text} }`
     : text
-  const lib = addExtraLib(wrapped, moduleName)
+  const lib = addExtraLib(monaco, wrapped, moduleName)
   ExtraLibs[key] = lib
 }

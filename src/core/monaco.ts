@@ -4,8 +4,10 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2020-05-05 21:14:08
  */
-import * as Monaco from 'monaco-editor/esm/vs/editor/editor.main.js'
+export type IMonaco = import('@monaco-editor/loader').Monaco
 
-export type IMonaco = typeof import('monaco-editor')
+export type CompilerOptions = Parameters<
+  IMonaco['languages']['typescript']['typescriptDefaults']['setCompilerOptions']
+>[0]
 
-export const monaco = Monaco as IMonaco
+export type PromiseType<T> = T extends Promise<infer P> ? P : never

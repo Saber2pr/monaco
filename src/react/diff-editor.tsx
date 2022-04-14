@@ -21,10 +21,13 @@ export const DiffEditor: React.FC<DiffEditorProps> = ({
 
   useEffect(() => {
     if (ref.current) {
-      const editor = createDiffEditor(ref.current, original, modified, language)
-      if (onInit) {
-        onInit(editor)
-      }
+      createDiffEditor(ref.current, original, modified, language).then(
+        editor => {
+          if (onInit) {
+            onInit(editor)
+          }
+        }
+      )
     }
   }, deps)
 

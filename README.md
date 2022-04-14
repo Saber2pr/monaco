@@ -23,7 +23,7 @@ editor:
 import { createEditor } from '@saber2pr/monaco'
 
 // 1. create editor
-const editor = createEditor(
+const editor = await createEditor(
   dom,
   {
     // file: file-content

@@ -4,8 +4,11 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2021-10-06 15:25:47
  */
-import { commonOptions, tsCompilerOptions } from './options'
-import { IMonaco, monaco } from './monaco'
+import loader from '@monaco-editor/loader'
+
+import { IMonaco, PromiseType } from './monaco'
+
+import { commonOptions, getTsCompilerOptions } from './options'
 import { updateCompilerOptions } from './typescript'
 
 export interface ModalFiles {
@@ -14,11 +17,12 @@ export interface ModalFiles {
 
 export type EditorOptions = Parameters<IMonaco['editor']['create']>[1]
 
-export function createEditor(
+export async function createEditor(
   editorContainer: HTMLElement,
   modalFiles: ModalFiles,
   options: EditorOptions = {}
 ) {
+  const monaco = await loader.init()
   const data = Object.fromEntries(
     Object.entries(modalFiles).map(([fileName, content]) => {
       const model = monaco.editor.createModel(
@@ -39,7 +43,7 @@ export function createEditor(
     ...options,
   })
   // tsconfig
-  updateCompilerOptions(tsCompilerOptions)
+  updateCompilerOptions(monaco, getTsCompilerOptions(monaco))
 
   function setValue(value: string, fileName?: string) {
     if (fileName === undefined) {
@@ -136,4 +140,4 @@ export function createEditor(
   }
 }
 
-export type EditorAPI = ReturnType<typeof createEditor>
+export type EditorAPI = PromiseType<ReturnType<typeof createEditor>>

@@ -4,13 +4,13 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2020-05-05 21:10:05
  */
-import { monaco } from './monaco'
+import { IMonaco } from "./monaco"
 
 export const commonOptions = {
   tabSize: 2,
 }
 
-export const tsCompilerOptions = {
+export const getTsCompilerOptions = (monaco: IMonaco) => ({
   jsx: monaco.languages.typescript.JsxEmit['React'],
   target: monaco.languages.typescript.ScriptTarget['ES5'],
   module: monaco.languages.typescript.ModuleKind['AMD'],
@@ -22,4 +22,4 @@ export const tsCompilerOptions = {
   downlevelIteration: true,
   removeComments: true,
   lib: ['dom', 'dom.iterable', 'esnext'],
-}
+})

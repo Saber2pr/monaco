@@ -18,10 +18,11 @@ export const Editor: React.FC<EditorProps> = ({
 
   useEffect(() => {
     if (ref.current) {
-      const editor = createEditor(ref.current, modalFiles, options)
-      if (onInit) {
-        onInit(editor)
-      }
+      createEditor(ref.current, modalFiles, options).then(editor => {
+        if (onInit) {
+          onInit(editor)
+        }
+      })
     }
   }, deps)
 
