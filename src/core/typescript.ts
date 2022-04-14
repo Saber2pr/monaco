@@ -22,9 +22,15 @@ export const compileTS = async (
 ) => {
   const tsWorker = await monaco.languages.typescript.getTypeScriptWorker()
   const client = await tsWorker(uri)
-  const result = await client.getEmitOutput(uri.toString())
+  const fileName = uri.toString()
+  const diagnostics = await client.getSemanticDiagnostics(fileName)
+  const result = await client.getEmitOutput(fileName)
   const files = result.outputFiles[0]
-  return files.text
+
+  return {
+    output: files.text,
+    diagnostics,
+  }
 }
 
 export const updateCompilerOptions = (
