@@ -26,7 +26,8 @@ export async function createEditor(
   const models = monaco.editor.getModels()
   const fileMap = models.reduce((acc, m) => {
     const filePath = m.uri.toString()
-    return { ...acc, [filePath]: filePath.replace(/^file:\/\//, '') }
+    const key = filePath.replace(/^file:\/\//, '')
+    return { ...acc, [key]: m }
   }, {})
 
   const data = Object.fromEntries(

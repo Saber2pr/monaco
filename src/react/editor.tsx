@@ -10,7 +10,7 @@ export interface EditorProps {
 }
 
 export const Editor: React.FC<EditorProps> = ({
-  modalFiles = { 'main.tsx': 'console.log("hello")' },
+  modalFiles = { '/main.tsx': 'console.log("hello")' },
   options,
   onInit,
   deps = [],
