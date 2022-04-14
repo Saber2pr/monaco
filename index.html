@@ -79,7 +79,7 @@
 				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createEditor</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/monaco&#039;</span>
 
 <span style="color: #008000">// 1. create editor</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">editor</span><span style="color: #000000"> = </span><span style="color: #795E26">createEditor</span><span style="color: #000000">(</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">editor</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">createEditor</span><span style="color: #000000">(</span>
 <span style="color: #000000">  </span><span style="color: #001080">dom</span><span style="color: #000000">,</span>
 <span style="color: #000000">  {</span>
 <span style="color: #000000">    </span><span style="color: #008000">// file: file-content</span>
@@ -135,6 +135,9 @@
 						<a href="interfaces/ModalFiles.html" class="tsd-kind-icon">Modal<wbr>Files</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#CompilerOptions" class="tsd-kind-icon">Compiler<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#DiffEditorAPI" class="tsd-kind-icon">Diff<wbr>EditorAPI</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -149,6 +152,9 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#IMonaco" class="tsd-kind-icon">IMonaco</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#PromiseType" class="tsd-kind-icon">Promise<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="modules.html#DiffEditor" class="tsd-kind-icon">Diff<wbr>Editor</a>
 					</li>
@@ -157,12 +163,6 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="modules.html#commonOptions" class="tsd-kind-icon">common<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#monaco" class="tsd-kind-icon">monaco</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#tsCompilerOptions" class="tsd-kind-icon">ts<wbr>Compiler<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#addDragListener" class="tsd-kind-icon">add<wbr>Drag<wbr>Listener</a>
@@ -193,6 +193,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#getReferencePaths" class="tsd-kind-icon">get<wbr>Reference<wbr>Paths</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#getTsCompilerOptions" class="tsd-kind-icon">get<wbr>TsCompiler<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#initKeyBoard" class="tsd-kind-icon">init<wbr>Key<wbr>Board</a>

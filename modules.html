@@ -79,11 +79,13 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="modules.html#CompilerOptions" class="tsd-kind-icon">Compiler<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#DiffEditorAPI" class="tsd-kind-icon">Diff<wbr>EditorAPI</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#EditorAPI" class="tsd-kind-icon">EditorAPI</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#EditorOptions" class="tsd-kind-icon">Editor<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#FileInfo" class="tsd-kind-icon">File<wbr>Info</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#IMonaco" class="tsd-kind-icon">IMonaco</a></li>
+								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#PromiseType" class="tsd-kind-icon">Promise<wbr>Type</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -92,8 +94,6 @@
 								<li class="tsd-kind-variable"><a href="modules.html#DiffEditor" class="tsd-kind-icon">Diff<wbr>Editor</a></li>
 								<li class="tsd-kind-variable"><a href="modules.html#Editor" class="tsd-kind-icon">Editor</a></li>
 								<li class="tsd-kind-variable"><a href="modules.html#commonOptions" class="tsd-kind-icon">common<wbr>Options</a></li>
-								<li class="tsd-kind-variable"><a href="modules.html#monaco" class="tsd-kind-icon">monaco</a></li>
-								<li class="tsd-kind-variable"><a href="modules.html#tsCompilerOptions" class="tsd-kind-icon">ts<wbr>Compiler<wbr>Options</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -109,6 +109,7 @@
 								<li class="tsd-kind-function"><a href="modules.html#debounce" class="tsd-kind-icon">debounce</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#enClosure" class="tsd-kind-icon">en<wbr>Closure</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#getReferencePaths" class="tsd-kind-icon">get<wbr>Reference<wbr>Paths</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#getTsCompilerOptions" class="tsd-kind-icon">get<wbr>TsCompiler<wbr>Options</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#initKeyBoard" class="tsd-kind-icon">init<wbr>Key<wbr>Board</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#makeSandCode" class="tsd-kind-icon">make<wbr>Sand<wbr>Code</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#readFile" class="tsd-kind-icon">read<wbr>File</a></li>
@@ -122,22 +123,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="DiffEditorAPI" class="tsd-anchor"></a>
-					<h3>Diff<wbr>EditorAPI</h3>
-					<div class="tsd-signature tsd-kind-icon">Diff<wbr>EditorAPI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><a href="modules.html#createDiffEditor" class="tsd-signature-type" data-tsd-kind="Function">createDiffEditor</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="CompilerOptions" class="tsd-anchor"></a>
+					<h3>Compiler<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">Compiler<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="modules.html#IMonaco" class="tsd-signature-type" data-tsd-kind="Type alias">IMonaco</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;languages&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;typescript&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;typescriptDefaults&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;setCompilerOptions&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/createDiffEditor.ts#L40">src/core/createDiffEditor.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/monaco.ts#L9">src/core/monaco.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="DiffEditorAPI" class="tsd-anchor"></a>
+					<h3>Diff<wbr>EditorAPI</h3>
+					<div class="tsd-signature tsd-kind-icon">Diff<wbr>EditorAPI<span class="tsd-signature-symbol">:</span> <a href="modules.html#PromiseType" class="tsd-signature-type" data-tsd-kind="Type alias">PromiseType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><a href="modules.html#createDiffEditor" class="tsd-signature-type" data-tsd-kind="Function">createDiffEditor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/createDiffEditor.ts#L42">src/core/createDiffEditor.ts:42</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="EditorAPI" class="tsd-anchor"></a>
 					<h3>EditorAPI</h3>
-					<div class="tsd-signature tsd-kind-icon">EditorAPI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><a href="modules.html#createEditor" class="tsd-signature-type" data-tsd-kind="Function">createEditor</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">EditorAPI<span class="tsd-signature-symbol">:</span> <a href="modules.html#PromiseType" class="tsd-signature-type" data-tsd-kind="Type alias">PromiseType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">typeof </span><a href="modules.html#createEditor" class="tsd-signature-type" data-tsd-kind="Function">createEditor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/createEditor.ts#L139">src/core/createEditor.ts:139</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/createEditor.ts#L143">src/core/createEditor.ts:143</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">Editor<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="modules.html#IMonaco" class="tsd-signature-type" data-tsd-kind="Type alias">IMonaco</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;editor&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;create&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/createEditor.ts#L15">src/core/createEditor.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/createEditor.ts#L18">src/core/createEditor.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">File<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/readFile.ts#L14">src/utils/readFile.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/readFile.ts#L14">src/utils/readFile.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -178,12 +189,28 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="IMonaco" class="tsd-anchor"></a>
 					<h3>IMonaco</h3>
-					<div class="tsd-signature tsd-kind-icon">IMonaco<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">__module</span></div>
+					<div class="tsd-signature tsd-kind-icon">IMonaco<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Monaco</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/monaco.ts#L9">src/core/monaco.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/monaco.ts#L7">src/core/monaco.ts:7</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+					<a name="PromiseType" class="tsd-anchor"></a>
+					<h3>Promise<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Promise<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">infer </span> P<span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">never</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/monaco.ts#L13">src/core/monaco.ts:13</a></li>
+						</ul>
+					</aside>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -194,7 +221,7 @@
 					<div class="tsd-signature tsd-kind-icon">Diff<wbr>Editor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/DiffEditorProps.html" class="tsd-signature-type" data-tsd-kind="Interface">DiffEditorProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/react/diff-editor.tsx#L13">src/react/diff-editor.tsx:13</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/react/diff-editor.tsx#L13">src/react/diff-editor.tsx:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">Editor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/EditorProps.html" class="tsd-signature-type" data-tsd-kind="Interface">EditorProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/react/editor.tsx#L11">src/react/editor.tsx:11</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/react/editor.tsx#L11">src/react/editor.tsx:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">common<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>tabSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/options.ts#L9">src/core/options.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/options.ts#L9">src/core/options.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -222,64 +249,6 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
 								<h5>tab<wbr>Size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable">
-					<a name="monaco" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> monaco</h3>
-					<div class="tsd-signature tsd-kind-icon">monaco<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">__module</span><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/monaco.ts#L11">src/core/monaco.ts:11</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable">
-					<a name="tsCompilerOptions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> ts<wbr>Compiler<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">ts<wbr>Compiler<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>allowJs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>allowSyntheticDefaultImports<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>downlevelIteration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>emitDecoratorMetadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>esModuleInterop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>experimentalDecorators<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>jsx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JsxEmit</span><span class="tsd-signature-symbol">; </span>lib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>module<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ModuleKind</span><span class="tsd-signature-symbol">; </span>removeComments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScriptTarget</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/options.ts#L13">src/core/options.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>allow<wbr>Js<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>allow<wbr>Synthetic<wbr>Default<wbr>Imports<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>downlevel<wbr>Iteration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>emit<wbr>Decorator<wbr>Metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>es<wbr>Module<wbr>Interop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>experimental<wbr>Decorators<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>jsx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JsxEmit</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>lib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>module<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ModuleKind</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>remove<wbr>Comments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScriptTarget</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -297,7 +266,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/addDragListener.ts#L1">src/utils/addDragListener.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/addDragListener.ts#L1">src/utils/addDragListener.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -377,17 +346,20 @@
 					<a name="addExtraLib" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> add<wbr>Extra<wbr>Lib</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Extra<wbr>Lib<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, filePath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IDisposable</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Extra<wbr>Lib<span class="tsd-signature-symbol">(</span>monaco<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__module</span>, content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, filePath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IDisposable</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/typescript.ts#L11">src/core/typescript.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/typescript.ts#L13">src/core/typescript.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>monaco: <span class="tsd-signature-type">__module</span></h5>
+								</li>
 								<li>
 									<h5>content: <span class="tsd-signature-type">string</span></h5>
 								</li>
@@ -403,17 +375,20 @@
 					<a name="addModuleDeclaration" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> add<wbr>Module<wbr>Declaration</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Module<wbr>Declaration<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, moduleName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Module<wbr>Declaration<span class="tsd-signature-symbol">(</span>monaco<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__module</span>, url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, moduleName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/typescript.ts#L33">src/core/typescript.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/typescript.ts#L42">src/core/typescript.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>monaco: <span class="tsd-signature-type">__module</span></h5>
+								</li>
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
 								</li>
@@ -435,7 +410,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/addUploadListener.ts#L3">src/utils/addUploadListener.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/addUploadListener.ts#L3">src/utils/addUploadListener.ts:3</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -470,17 +445,20 @@
 					<a name="compileTS" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> compileTS</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">compileTS<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Uri</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">compileTS<span class="tsd-signature-symbol">(</span>monaco<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__module</span>, uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Uri</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/typescript.ts#L14">src/core/typescript.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/typescript.ts#L19">src/core/typescript.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>monaco: <span class="tsd-signature-type">__module</span></h5>
+								</li>
 								<li>
 									<h5>uri: <span class="tsd-signature-type">Uri</span></h5>
 								</li>
@@ -491,15 +469,15 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="createDiffEditor" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Diff<wbr>Editor</h3>
+					<h3>create<wbr>Diff<wbr>Editor</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Diff<wbr>Editor<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, original<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, modified<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStandaloneDiffEditor</span><span class="tsd-signature-symbol">; </span>modifiedModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>originalModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Diff<wbr>Editor<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, original<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, modified<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, language<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStandaloneDiffEditor</span><span class="tsd-signature-symbol">; </span>modifiedModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>originalModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/createDiffEditor.ts#L10">src/core/createDiffEditor.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/createDiffEditor.ts#L11">src/core/createDiffEditor.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -517,42 +495,7 @@
 									<h5>language: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;text/plain&#x27;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStandaloneDiffEditor</span><span class="tsd-signature-symbol">; </span>modifiedModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>originalModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStandaloneDiffEditor</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>modified<wbr>Model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>original<wbr>Model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>set<wbr>Size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>width: <span class="tsd-signature-type">number</span></h5>
-														</li>
-														<li>
-															<h5>height: <span class="tsd-signature-type">number</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStandaloneDiffEditor</span><span class="tsd-signature-symbol">; </span>modifiedModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>originalModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -560,13 +503,13 @@
 					<a name="createEditor" class="tsd-anchor"></a>
 					<h3>create<wbr>Editor</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Editor<span class="tsd-signature-symbol">(</span>editorContainer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, modalFiles<span class="tsd-signature-symbol">: </span><a href="interfaces/ModalFiles.html" class="tsd-signature-type" data-tsd-kind="Interface">ModalFiles</a>, options<span class="tsd-signature-symbol">?: </span><a href="modules.html#EditorOptions" class="tsd-signature-type" data-tsd-kind="Type alias">EditorOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>changeModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>getData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>getInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">IStandaloneCodeEditor</span><span class="tsd-signature-symbol">; </span>getModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>getSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">EditorLayoutInfo</span><span class="tsd-signature-symbol">; </span>getState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>getValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Editor<span class="tsd-signature-symbol">(</span>editorContainer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, modalFiles<span class="tsd-signature-symbol">: </span><a href="interfaces/ModalFiles.html" class="tsd-signature-type" data-tsd-kind="Interface">ModalFiles</a>, options<span class="tsd-signature-symbol">?: </span><a href="modules.html#EditorOptions" class="tsd-signature-type" data-tsd-kind="Type alias">EditorOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>changeModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>getData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>getInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">IStandaloneCodeEditor</span><span class="tsd-signature-symbol">; </span>getModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>getSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">EditorLayoutInfo</span><span class="tsd-signature-symbol">; </span>getState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>getValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/createEditor.ts#L17">src/core/createEditor.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/createEditor.ts#L20">src/core/createEditor.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -581,215 +524,7 @@
 									<h5>options: <a href="modules.html#EditorOptions" class="tsd-signature-type" data-tsd-kind="Type alias">EditorOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>changeModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>getData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>getInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">IStandaloneCodeEditor</span><span class="tsd-signature-symbol">; </span>getModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>getSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">EditorLayoutInfo</span><span class="tsd-signature-symbol">; </span>getState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>getValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>change<wbr>Model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>fileName: <span class="tsd-signature-type">string</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>get<wbr>Data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">{}</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
-													<ul class="tsd-parameters">
-														<li class="tsd-parameter-index-signature">
-															<h5><span class="tsd-signature-symbol">[</span>k: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">T</span></h5>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>get<wbr>Instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">IStandaloneCodeEditor</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStandaloneCodeEditor</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IStandaloneCodeEditor</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>get<wbr>Model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ITextModel</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITextModel</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> fileName: <span class="tsd-signature-type">string</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ITextModel</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>get<wbr>Size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">EditorLayoutInfo</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EditorLayoutInfo</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">EditorLayoutInfo</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>get<wbr>State<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>fileName: <span class="tsd-signature-type">string</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>get<wbr>Value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> fileName: <span class="tsd-signature-type">string</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>set<wbr>Size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>width: <span class="tsd-signature-type">number</span></h5>
-														</li>
-														<li>
-															<h5>height: <span class="tsd-signature-type">number</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>set<wbr>State<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>fileName: <span class="tsd-signature-type">string</span></h5>
-														</li>
-														<li>
-															<h5>state: <span class="tsd-signature-type">any</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>set<wbr>Value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>value: <span class="tsd-signature-type">string</span></h5>
-														</li>
-														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> fileName: <span class="tsd-signature-type">string</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>changeModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>getData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>getInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">IStandaloneCodeEditor</span><span class="tsd-signature-symbol">; </span>getModel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ITextModel</span><span class="tsd-signature-symbol">; </span>getSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">EditorLayoutInfo</span><span class="tsd-signature-symbol">; </span>getState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>getValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>setSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fileName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -803,7 +538,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/debounce.ts#L1">src/utils/debounce.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/debounce.ts#L1">src/utils/debounce.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -832,7 +567,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/enClosure.ts#L1">src/utils/enClosure.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/enClosure.ts#L1">src/utils/enClosure.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -855,7 +590,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/getReferencePaths.ts#L1">src/utils/getReferencePaths.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/getReferencePaths.ts#L1">src/utils/getReferencePaths.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -869,6 +604,64 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getTsCompilerOptions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>TsCompiler<wbr>Options</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>TsCompiler<wbr>Options<span class="tsd-signature-symbol">(</span>monaco<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__module</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>allowJs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>allowSyntheticDefaultImports<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>downlevelIteration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>emitDecoratorMetadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>esModuleInterop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>experimentalDecorators<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>jsx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JsxEmit</span><span class="tsd-signature-symbol">; </span>lib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>module<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ModuleKind</span><span class="tsd-signature-symbol">; </span>removeComments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScriptTarget</span><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/options.ts#L13">src/core/options.ts:13</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>monaco: <span class="tsd-signature-type">__module</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>allowJs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>allowSyntheticDefaultImports<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>downlevelIteration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>emitDecoratorMetadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>esModuleInterop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>experimentalDecorators<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>jsx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JsxEmit</span><span class="tsd-signature-symbol">; </span>lib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>module<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ModuleKind</span><span class="tsd-signature-symbol">; </span>removeComments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScriptTarget</span><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>allow<wbr>Js<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>allow<wbr>Synthetic<wbr>Default<wbr>Imports<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>downlevel<wbr>Iteration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>emit<wbr>Decorator<wbr>Metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>es<wbr>Module<wbr>Interop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>experimental<wbr>Decorators<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>jsx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JsxEmit</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>lib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>module<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ModuleKind</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>remove<wbr>Comments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScriptTarget</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="initKeyBoard" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> init<wbr>Key<wbr>Board</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -878,7 +671,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/keyboard.ts#L7">src/utils/keyboard.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/keyboard.ts#L7">src/utils/keyboard.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -906,7 +699,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/sandbox/makeSandCode.ts#L20">src/sandbox/makeSandCode.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/sandbox/makeSandCode.ts#L20">src/sandbox/makeSandCode.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -932,7 +725,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/readFile.ts#L1">src/utils/readFile.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/readFile.ts#L1">src/utils/readFile.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -955,7 +748,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/utils/resolvePath.ts#L1">src/utils/resolvePath.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/utils/resolvePath.ts#L1">src/utils/resolvePath.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -975,17 +768,20 @@
 					<a name="updateCompilerOptions" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> update<wbr>Compiler<wbr>Options</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Compiler<wbr>Options<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CompilerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Compiler<wbr>Options<span class="tsd-signature-symbol">(</span>monaco<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__module</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CompilerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/93c1a85/src/core/typescript.ts#L22">src/core/typescript.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/monaco/blob/2519289/src/core/typescript.ts#L30">src/core/typescript.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>monaco: <span class="tsd-signature-type">__module</span></h5>
+								</li>
 								<li>
 									<h5>options: <span class="tsd-signature-type">CompilerOptions</span></h5>
 								</li>
@@ -1022,6 +818,9 @@
 						<a href="interfaces/ModalFiles.html" class="tsd-kind-icon">Modal<wbr>Files</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#CompilerOptions" class="tsd-kind-icon">Compiler<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#DiffEditorAPI" class="tsd-kind-icon">Diff<wbr>EditorAPI</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -1036,6 +835,9 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#IMonaco" class="tsd-kind-icon">IMonaco</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#PromiseType" class="tsd-kind-icon">Promise<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="modules.html#DiffEditor" class="tsd-kind-icon">Diff<wbr>Editor</a>
 					</li>
@@ -1044,12 +846,6 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="modules.html#commonOptions" class="tsd-kind-icon">common<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#monaco" class="tsd-kind-icon">monaco</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#tsCompilerOptions" class="tsd-kind-icon">ts<wbr>Compiler<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#addDragListener" class="tsd-kind-icon">add<wbr>Drag<wbr>Listener</a>
@@ -1080,6 +876,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#getReferencePaths" class="tsd-kind-icon">get<wbr>Reference<wbr>Paths</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#getTsCompilerOptions" class="tsd-kind-icon">get<wbr>TsCompiler<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#initKeyBoard" class="tsd-kind-icon">init<wbr>Key<wbr>Board</a>
