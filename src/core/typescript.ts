@@ -26,7 +26,6 @@ export const compileTS = async (
   const diagnostics = await client.getSemanticDiagnostics(fileName)
   const result = await client.getEmitOutput(fileName)
   const files = result.outputFiles[0]
-
   return {
     output: files.text,
     diagnostics,
