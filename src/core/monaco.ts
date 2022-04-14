@@ -11,3 +11,5 @@ export type CompilerOptions = Parameters<
 >[0]
 
 export type PromiseType<T> = T extends Promise<infer P> ? P : never
+
+export type ITextModel = ReturnType<IMonaco['editor']['createModel']>

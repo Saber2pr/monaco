@@ -6,8 +6,7 @@
  */
 import loader from '@monaco-editor/loader'
 
-import { IMonaco, PromiseType } from './monaco'
-
+import { IMonaco, ITextModel, PromiseType } from './monaco'
 import { commonOptions, getTsCompilerOptions } from './options'
 import { updateCompilerOptions } from './typescript'
 
@@ -32,14 +31,17 @@ export async function createEditor(
 
   const data = Object.fromEntries(
     Object.entries(modalFiles).reduce((acc, [fileName, content]) => {
+      let model: ITextModel = null
       if (fileName in fileMap) {
-        return acc
+        model = fileMap[fileName]
+      } else {
+        model = monaco.editor.createModel(
+          content,
+          undefined, // infer from uri
+          monaco.Uri.file(fileName)
+        )
       }
-      const model = monaco.editor.createModel(
-        content,
-        undefined, // infer from uri
-        monaco.Uri.file(fileName)
-      )
+
       // options
       model.updateOptions(commonOptions)
       return acc.concat([[fileName, { state: null, model }]])
