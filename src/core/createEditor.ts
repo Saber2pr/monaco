@@ -23,8 +23,17 @@ export async function createEditor(
   options: EditorOptions = {}
 ) {
   const monaco = await loader.init()
+  const models = monaco.editor.getModels()
+  const fileMap = models.reduce((acc, m) => {
+    const filePath = m.uri.toString()
+    return { ...acc, [filePath]: filePath.replace(/^file:\/\//, '') }
+  }, {})
+
   const data = Object.fromEntries(
-    Object.entries(modalFiles).map(([fileName, content]) => {
+    Object.entries(modalFiles).reduce((acc, [fileName, content]) => {
+      if (fileName in fileMap) {
+        return acc
+      }
       const model = monaco.editor.createModel(
         content,
         undefined, // infer from uri
@@ -32,8 +41,8 @@ export async function createEditor(
       )
       // options
       model.updateOptions(commonOptions)
-      return [fileName, { state: null, model }]
-    })
+      return acc.concat([[fileName, { state: null, model }]])
+    }, [])
   )
 
   const defaultOpenFile = Object.keys(modalFiles)[0]
