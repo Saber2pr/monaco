@@ -127,6 +127,7 @@ export async function createEditor(
   }
 
   return {
+    monaco,
     setValue,
     getValue,
     getInstance,

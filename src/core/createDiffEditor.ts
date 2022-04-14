@@ -32,6 +32,7 @@ export async function createDiffEditor(
   }
 
   return {
+    monaco,
     instance: diffEditor,
     setSize,
     originalModel,
