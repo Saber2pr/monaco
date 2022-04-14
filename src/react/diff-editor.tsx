@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { CSSProperties, useEffect, useRef } from 'react'
 
 import { createDiffEditor, DiffEditorAPI } from '../core'
 
@@ -8,6 +8,7 @@ export interface DiffEditorProps {
   language?: string
   onInit?: (editor: DiffEditorAPI) => any
   deps?: any[]
+  style?: CSSProperties
 }
 
 export const DiffEditor: React.FC<DiffEditorProps> = ({
@@ -16,6 +17,7 @@ export const DiffEditor: React.FC<DiffEditorProps> = ({
   modified,
   language,
   deps,
+  style,
 }) => {
   const ref = useRef<HTMLDivElement>()
 
@@ -31,5 +33,5 @@ export const DiffEditor: React.FC<DiffEditorProps> = ({
     }
   }, deps)
 
-  return <div ref={ref}></div>
+  return <div style={style} ref={ref}></div>
 }

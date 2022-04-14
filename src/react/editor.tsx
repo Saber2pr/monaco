@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { CSSProperties, useEffect, useRef } from 'react'
 import { createEditor, EditorAPI, EditorOptions, ModalFiles } from '../core'
 
 export interface EditorProps {
@@ -6,6 +6,7 @@ export interface EditorProps {
   options?: EditorOptions
   onInit?: (editor: EditorAPI) => any
   deps?: any[]
+  style?: CSSProperties
 }
 
 export const Editor: React.FC<EditorProps> = ({
@@ -13,6 +14,7 @@ export const Editor: React.FC<EditorProps> = ({
   options,
   onInit,
   deps = [],
+  style,
 }) => {
   const ref = useRef<HTMLDivElement>()
 
@@ -26,5 +28,5 @@ export const Editor: React.FC<EditorProps> = ({
     }
   }, deps)
 
-  return <div ref={ref}></div>
+  return <div style={style} ref={ref}></div>
 }
