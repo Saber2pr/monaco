@@ -126,6 +126,12 @@ export async function createEditor(
     }
   }
 
+  const getMarkers = () => {
+    return monaco.editor.getModelMarkers({
+      resource: editor.getModel().uri,
+    })
+  }
+
   return {
     monaco,
     setValue,
@@ -138,6 +144,7 @@ export async function createEditor(
     getModel,
     getState,
     setState,
+    getMarkers,
   }
 }
 
