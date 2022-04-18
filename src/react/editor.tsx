@@ -17,6 +17,7 @@ import {
 } from '../core'
 
 export interface EditorProps {
+  className?: string
   modalFiles?: ModalFiles
   options?: EditorOptions
   onInit?: (editor: EditorAPI) => any
@@ -38,6 +39,7 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
       types = {},
       tsconfig = {},
       theme,
+      className,
     },
     parentRef
   ) => {
@@ -74,6 +76,6 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
       }
     }, deps)
 
-    return <div style={style} ref={ref}></div>
+    return <div className={className} style={style} ref={ref}></div>
   }
 )
