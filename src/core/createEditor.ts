@@ -14,6 +14,7 @@ import {
   IMonaco,
   ITextModel,
   PromiseType,
+  ThemeNames,
 } from './monaco'
 import { commonOptions, getTsCompilerOptions } from './options'
 import * as ts from './typescript'
@@ -167,7 +168,7 @@ export async function createEditor(
   const getThemeConfig = (themeFile: string) =>
     fetch(`${ThemesUri}${themeFile}.json`).then(res => res.json())
 
-  const setTheme = async (themeName: string) => {
+  const setTheme = async (themeName: ThemeNames) => {
     if (hasTheme(themeName)) {
       monaco.editor.setTheme(themeName)
       localStorage.setItem(KEYS.__EDITOR_EDITOR_THEME__, themeName)

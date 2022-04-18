@@ -12,6 +12,7 @@ import {
   EditorAPI,
   EditorOptions,
   ModalFiles,
+  ThemeNames,
   updateCompilerOptions,
 } from '../core'
 
@@ -23,6 +24,7 @@ export interface EditorProps {
   style?: CSSProperties
   types?: Record<string, string>
   tsconfig?: CompilerOptions
+  theme?: ThemeNames
 }
 
 export const Editor = React.forwardRef<EditorAPI, EditorProps>(
@@ -35,6 +37,7 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
       style,
       types = {},
       tsconfig = {},
+      theme,
     },
     parentRef
   ) => {
@@ -63,6 +66,9 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
           }
           if (tsconfig) {
             updateCompilerOptions(editor.monaco, tsconfig)
+          }
+          if (theme) {
+            editor.setTheme(theme)
           }
         })
       }
