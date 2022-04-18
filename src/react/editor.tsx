@@ -1,5 +1,11 @@
 import React, { CSSProperties, useEffect, useRef } from 'react'
-import { createEditor, EditorAPI, EditorOptions, ModalFiles } from '../core'
+import {
+  addModuleDeclaration,
+  createEditor,
+  EditorAPI,
+  EditorOptions,
+  ModalFiles,
+} from '../core'
 
 export interface EditorProps {
   modalFiles?: ModalFiles
@@ -7,6 +13,7 @@ export interface EditorProps {
   onInit?: (editor: EditorAPI) => any
   deps?: any[]
   style?: CSSProperties
+  types?: Record<string, string>
 }
 
 export const Editor: React.FC<EditorProps> = ({
@@ -15,6 +22,7 @@ export const Editor: React.FC<EditorProps> = ({
   onInit,
   deps = [],
   style,
+  types = {},
 }) => {
   const ref = useRef<HTMLDivElement>()
 
@@ -23,6 +31,17 @@ export const Editor: React.FC<EditorProps> = ({
       createEditor(ref.current, modalFiles, options).then(editor => {
         if (onInit) {
           onInit(editor)
+        }
+        if (types) {
+          Promise.all(
+            Object.keys(types).map(name =>
+              addModuleDeclaration(
+                editor.monaco,
+                types[name],
+                name.startsWith('global:') ? null : name
+              )
+            )
+          )
         }
       })
     }
