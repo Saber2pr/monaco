@@ -4,12 +4,15 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react'
+
 import {
   addModuleDeclaration,
+  CompilerOptions,
   createEditor,
   EditorAPI,
   EditorOptions,
   ModalFiles,
+  updateCompilerOptions,
 } from '../core'
 
 export interface EditorProps {
@@ -19,6 +22,7 @@ export interface EditorProps {
   deps?: any[]
   style?: CSSProperties
   types?: Record<string, string>
+  tsconfig?: CompilerOptions
 }
 
 export const Editor = React.forwardRef<EditorAPI, EditorProps>(
@@ -30,6 +34,7 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
       deps = [],
       style,
       types = {},
+      tsconfig = {},
     },
     parentRef
   ) => {
@@ -55,6 +60,9 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
                 )
               )
             )
+          }
+          if (tsconfig) {
+            updateCompilerOptions(editor.monaco, tsconfig)
           }
         })
       }
