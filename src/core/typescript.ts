@@ -16,9 +16,11 @@ export const addExtraLib = (
   filePath?: string
 ) => {
   const defaults = getTypescriptDefaults(monaco)
-  const libs = defaults.getExtraLibs() || {}
-  if (filePath in libs) {
-    return
+  if (filePath) {
+    const libs = defaults.getExtraLibs() || {}
+    if (filePath in libs) {
+      return
+    }
   }
   return defaults.addExtraLib(content, filePath)
 }
