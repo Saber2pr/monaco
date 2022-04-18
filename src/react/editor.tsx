@@ -1,4 +1,9 @@
-import React, { CSSProperties, useEffect, useRef } from 'react'
+import React, {
+  CSSProperties,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import {
   addModuleDeclaration,
   createEditor,
@@ -16,36 +21,45 @@ export interface EditorProps {
   types?: Record<string, string>
 }
 
-export const Editor: React.FC<EditorProps> = ({
-  modalFiles = { '/main.tsx': 'console.log("hello")' },
-  options,
-  onInit,
-  deps = [],
-  style,
-  types = {},
-}) => {
-  const ref = useRef<HTMLDivElement>()
+export const Editor = React.forwardRef<EditorAPI, EditorProps>(
+  (
+    {
+      modalFiles = { '/main.tsx': 'console.log("hello")' },
+      options,
+      onInit,
+      deps = [],
+      style,
+      types = {},
+    },
+    parentRef
+  ) => {
+    const ref = useRef<HTMLDivElement>()
+    const apiRef = useRef<EditorAPI>()
 
-  useEffect(() => {
-    if (ref.current) {
-      createEditor(ref.current, modalFiles, options).then(editor => {
-        if (onInit) {
-          onInit(editor)
-        }
-        if (types) {
-          Promise.all(
-            Object.keys(types).map(name =>
-              addModuleDeclaration(
-                editor.monaco,
-                types[name],
-                name.startsWith('global:') ? null : name
+    useImperativeHandle(parentRef, () => apiRef.current)
+
+    useEffect(() => {
+      if (ref.current) {
+        createEditor(ref.current, modalFiles, options).then(editor => {
+          apiRef.current = editor
+          if (onInit) {
+            onInit(editor)
+          }
+          if (types) {
+            Promise.all(
+              Object.keys(types).map(name =>
+                addModuleDeclaration(
+                  editor.monaco,
+                  types[name],
+                  name.startsWith('global:') ? null : name
+                )
               )
             )
-          )
-        }
-      })
-    }
-  }, deps)
+          }
+        })
+      }
+    }, deps)
 
-  return <div style={style} ref={ref}></div>
-}
+    return <div style={style} ref={ref}></div>
+  }
+)
