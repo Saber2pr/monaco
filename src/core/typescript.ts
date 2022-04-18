@@ -14,7 +14,14 @@ export const addExtraLib = (
   monaco: IMonaco,
   content: string,
   filePath?: string
-) => getTypescriptDefaults(monaco).addExtraLib(content, filePath)
+) => {
+  const defaults = getTypescriptDefaults(monaco)
+  const libs = defaults.getExtraLibs() || {}
+  if (filePath in libs) {
+    return
+  }
+  return defaults.addExtraLib(content, filePath)
+}
 
 export const compileTS = async (
   monaco: IMonaco,
