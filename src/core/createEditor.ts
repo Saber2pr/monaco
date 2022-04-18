@@ -5,6 +5,7 @@
  * @Last Modified time: 2021-10-06 15:25:47
  */
 import loader from '@monaco-editor/loader'
+import { KEYS, ThemesUri } from '../constants'
 
 import { IMonaco, ITextModel, PromiseType } from './monaco'
 import { commonOptions, getTsCompilerOptions } from './options'
@@ -144,6 +145,33 @@ export async function createEditor(
     })
   }
 
+  const hasTheme = (theme: string) =>
+    // @ts-ignore
+    editor._themeService._knownThemes.has(theme)
+
+  const getThemeList = () =>
+    fetch(`${ThemesUri}themelist.json`).then(res => res.json())
+
+  const getThemeConfig = (themeFile: string) =>
+    fetch(`${ThemesUri}${themeFile}.json`).then(res => res.json())
+
+  const setTheme = async (themeName: string) => {
+    if (hasTheme(themeName)) {
+      monaco.editor.setTheme(themeName)
+      localStorage.setItem(KEYS.__EDITOR_EDITOR_THEME__, themeName)
+    } else {
+      const themes = await getThemeList()
+      const themeFile = themes[themeName]
+      if (themeFile) {
+        getThemeConfig(themeFile).then(themeData => {
+          monaco.editor.defineTheme(themeName, themeData)
+          monaco.editor.setTheme(themeName)
+          localStorage.setItem(KEYS.__EDITOR_EDITOR_THEME__, themeName)
+        })
+      }
+    }
+  }
+
   return {
     monaco,
     setValue,
@@ -157,6 +185,10 @@ export async function createEditor(
     getState,
     setState,
     getMarkers,
+    setTheme,
+    hasTheme,
+    getThemeConfig,
+    getThemeList,
   }
 }
 
