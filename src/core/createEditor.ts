@@ -5,17 +5,27 @@
  * @Last Modified time: 2021-10-06 15:25:47
  */
 import loader from '@monaco-editor/loader'
-import { KEYS, ThemesUri } from '../constants'
 
-import { IMonaco, ITextModel, PromiseType } from './monaco'
+import { KEYS, ThemesUri } from '../constants'
+import {
+  EditorOptions,
+  ICodeEditorViewState,
+  ITextModel,
+  PromiseType,
+} from './monaco'
 import { commonOptions, getTsCompilerOptions } from './options'
-import { updateCompilerOptions } from './typescript'
+import { compileTS, updateCompilerOptions } from './typescript'
 
 export interface ModalFiles {
   [fileName: string]: string
 }
 
-export type EditorOptions = Parameters<IMonaco['editor']['create']>[1]
+export interface EditorData {
+  [fileName: string]: {
+    state: ICodeEditorViewState
+    model: ITextModel
+  }
+}
 
 export async function createEditor(
   editorContainer: HTMLElement,
@@ -30,7 +40,7 @@ export async function createEditor(
     return { ...acc, [key]: m }
   }, {})
 
-  const data = Object.fromEntries(
+  const data: EditorData = Object.fromEntries(
     Object.entries(modalFiles).reduce((acc, [fileName, content]) => {
       let model: ITextModel = null
       if (fileName in fileMap) {
@@ -139,9 +149,9 @@ export async function createEditor(
     }
   }
 
-  const getMarkers = () => {
+  const getMarkers = (fileName?: string) => {
     return monaco.editor.getModelMarkers({
-      resource: editor.getModel().uri,
+      resource: getModel(fileName)?.uri,
     })
   }
 
@@ -172,6 +182,15 @@ export async function createEditor(
     }
   }
 
+  const getOutput = async (fileName?: string) => {
+    const markers = getMarkers(fileName)
+    const out = await compileTS(monaco, getModel(fileName)?.uri)
+    return {
+      ...out,
+      markers,
+    }
+  }
+
   return {
     monaco,
     setValue,
@@ -189,6 +208,7 @@ export async function createEditor(
     hasTheme,
     getThemeConfig,
     getThemeList,
+    getOutput,
   }
 }
 
