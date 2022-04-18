@@ -33,4 +33,4 @@ export namespace KEYS {
   export const __MESSAGE_CONSOLE_ERROR__ = '__MESSAGE_CONSOLE_ERROR__'
 }
 
-export const ThemesUri = 'https://unpkg.com/monaco-themes@0.3.3/themes/'
+export const ThemesUri = 'https://cdn.jsdelivr.net/npm/monaco-themes/themes/'
