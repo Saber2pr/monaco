@@ -8,13 +8,15 @@ import loader from '@monaco-editor/loader'
 
 import { KEYS, ThemesUri } from '../constants'
 import {
+  CompilerOptions,
   EditorOptions,
   ICodeEditorViewState,
+  IMonaco,
   ITextModel,
   PromiseType,
 } from './monaco'
 import { commonOptions, getTsCompilerOptions } from './options'
-import { compileTS, updateCompilerOptions } from './typescript'
+import * as ts from './typescript'
 
 export interface ModalFiles {
   [fileName: string]: string
@@ -66,7 +68,7 @@ export async function createEditor(
     ...options,
   })
   // tsconfig
-  updateCompilerOptions(monaco, getTsCompilerOptions(monaco))
+  ts.updateCompilerOptions(monaco, getTsCompilerOptions(monaco))
 
   function setValue(value: string, fileName?: string) {
     if (fileName === undefined) {
@@ -184,12 +186,26 @@ export async function createEditor(
 
   const getOutput = async (fileName?: string) => {
     const markers = getMarkers(fileName)
-    const out = await compileTS(monaco, getModel(fileName)?.uri)
+    const out = await ts.compileTS(monaco, getModel(fileName)?.uri)
     return {
       ...out,
       markers,
     }
   }
+
+  const addExtraLib = (content: string, filePath?: string) =>
+    ts.addExtraLib(monaco, content, filePath)
+
+  const getTypescriptDefaults = () => ts.getTypescriptDefaults(monaco)
+
+  const compileTS = (uri?: InstanceType<IMonaco['Uri']>) =>
+    ts.compileTS(monaco, uri || getModel()?.uri)
+
+  const updateCompilerOptions = (options: CompilerOptions) =>
+    ts.updateCompilerOptions(monaco, options)
+
+  const addModuleDeclaration = (url: string, moduleName?: string) =>
+    ts.addModuleDeclaration(monaco, url, moduleName)
 
   return {
     monaco,
@@ -204,11 +220,18 @@ export async function createEditor(
     getState,
     setState,
     getMarkers,
+    // theme
     setTheme,
     hasTheme,
     getThemeConfig,
     getThemeList,
+    // ts
     getOutput,
+    addExtraLib,
+    getTypescriptDefaults,
+    compileTS,
+    updateCompilerOptions,
+    addModuleDeclaration,
   }
 }
 

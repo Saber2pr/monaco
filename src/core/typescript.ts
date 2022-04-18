@@ -7,7 +7,7 @@
 import { getReferencePaths, resolvePath } from '../utils'
 import { CompilerOptions, IMonaco } from './monaco'
 
-const getTypescriptDefaults = (monaco: IMonaco) =>
+export const getTypescriptDefaults = (monaco: IMonaco) =>
   monaco.languages.typescript.typescriptDefaults
 
 export const addExtraLib = (
