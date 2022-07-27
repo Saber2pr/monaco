@@ -22,7 +22,9 @@ export const addExtraLib = (
       return
     }
   }
-  return defaults.addExtraLib(content, filePath)
+  return filePath
+    ? defaults.addExtraLib(content, filePath)
+    : defaults.addExtraLib(content)
 }
 
 export const compileTS = async (
