@@ -1,3 +1,4 @@
+import loader from '@monaco-editor/loader'
 import React, { CSSProperties, useEffect, useRef } from 'react'
 
 import { createDiffEditor, DiffEditorAPI } from '../core'
@@ -9,6 +10,7 @@ export interface DiffEditorProps {
   onInit?: (editor: DiffEditorAPI) => any
   deps?: any[]
   style?: CSSProperties
+  loaderConfig?: Parameters<typeof loader.config>[0]
 }
 
 export const DiffEditor: React.FC<DiffEditorProps> = ({
@@ -18,12 +20,13 @@ export const DiffEditor: React.FC<DiffEditorProps> = ({
   language,
   deps,
   style,
+  loaderConfig
 }) => {
   const ref = useRef<HTMLDivElement>()
 
   useEffect(() => {
     if (ref.current) {
-      createDiffEditor(ref.current, original, modified, language).then(
+      createDiffEditor(ref.current, original, modified, language, loaderConfig).then(
         editor => {
           if (onInit) {
             onInit(editor)

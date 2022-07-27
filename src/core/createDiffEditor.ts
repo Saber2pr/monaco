@@ -12,8 +12,11 @@ export async function createDiffEditor(
   container: HTMLElement,
   original: string,
   modified: string,
-  language: string = 'text/plain'
+  language: string = 'text/plain',
+  loaderConfig?: Parameters<typeof loader.config>[0]
 ) {
+  loaderConfig && loader.config(loaderConfig)
+
   const monaco = await loader.init()
   const originalModel = monaco.editor.createModel(original, language)
   const modifiedModel = monaco.editor.createModel(modified, language)

@@ -1,3 +1,4 @@
+import loader from '@monaco-editor/loader'
 import React, {
   CSSProperties,
   useEffect,
@@ -26,6 +27,7 @@ export interface EditorProps {
   types?: Record<string, string>
   tsconfig?: CompilerOptions
   theme?: ThemeNames
+  loaderConfig?: Parameters<typeof loader.config>[0]
 }
 
 export const Editor = React.forwardRef<EditorAPI, EditorProps>(
@@ -40,6 +42,7 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
       tsconfig = {},
       theme,
       className,
+      loaderConfig
     },
     parentRef
   ) => {
@@ -50,7 +53,7 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
 
     useEffect(() => {
       if (ref.current) {
-        createEditor(ref.current, modalFiles, options).then(editor => {
+        createEditor(ref.current, modalFiles, options, loaderConfig).then(editor => {
           apiRef.current = editor
           if (onInit) {
             onInit(editor)

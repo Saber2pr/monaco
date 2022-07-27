@@ -33,8 +33,11 @@ export interface EditorData {
 export async function createEditor(
   editorContainer: HTMLElement,
   modalFiles: ModalFiles,
-  options: EditorOptions = {}
+  options: EditorOptions = {},
+  loaderConfig?: Parameters<typeof loader.config>[0]
 ) {
+  loaderConfig && loader.config(loaderConfig)
+
   const monaco = await loader.init()
   const models = monaco.editor.getModels()
   const fileMap = models.reduce((acc, m) => {
