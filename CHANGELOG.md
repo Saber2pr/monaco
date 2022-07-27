@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.38](https://github.com/Saber2pr/monaco/compare/v0.0.37...v0.0.38) (2022-07-27)
+
+
+### Bug Fixes
+
+* addlib global ([48b7350](https://github.com/Saber2pr/monaco/commit/48b73505be86b65e6a7647e8fa196b62768430ac))
+
 ### [0.0.37](https://github.com/Saber2pr/monaco/compare/v0.0.36...v0.0.37) (2022-07-27)
 
 
