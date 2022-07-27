@@ -65,7 +65,10 @@ export const addModuleDeclaration = async (
 
   let text = ''
   try {
-    text = await fetch(url).then(res => res.text())
+    const res = await fetch(url)
+    if (res.ok) {
+      text = await res.text()
+    }
   } catch (error) {}
 
   if (text) {
