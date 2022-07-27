@@ -42,7 +42,7 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
       tsconfig = {},
       theme,
       className,
-      loaderConfig
+      loaderConfig,
     },
     parentRef
   ) => {
@@ -53,30 +53,32 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
 
     useEffect(() => {
       if (ref.current) {
-        createEditor(ref.current, modalFiles, options, loaderConfig).then(editor => {
-          apiRef.current = editor
-          if (onInit) {
-            onInit(editor)
-          }
-          if (types) {
-            Promise.all(
-              Object.keys(types).map(name =>
-                addModuleDeclaration(
-                  editor.monaco,
-                  types[name],
-                  name,
-                  name.startsWith('global:')
+        createEditor(ref.current, modalFiles, options, loaderConfig).then(
+          editor => {
+            apiRef.current = editor
+            if (onInit) {
+              onInit(editor)
+            }
+            if (types) {
+              Promise.all(
+                Object.keys(types).map(name =>
+                  addModuleDeclaration(
+                    editor.monaco,
+                    types[name],
+                    name.replace(/^global:/, ''),
+                    name.startsWith('global:')
+                  )
                 )
               )
-            )
+            }
+            if (tsconfig) {
+              updateCompilerOptions(editor.monaco, tsconfig)
+            }
+            if (theme) {
+              editor.setTheme(theme)
+            }
           }
-          if (tsconfig) {
-            updateCompilerOptions(editor.monaco, tsconfig)
-          }
-          if (theme) {
-            editor.setTheme(theme)
-          }
-        })
+        )
       }
     }, deps)
 
