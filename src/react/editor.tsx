@@ -61,7 +61,8 @@ export const Editor = React.forwardRef<EditorAPI, EditorProps>(
                 addModuleDeclaration(
                   editor.monaco,
                   types[name],
-                  name.startsWith('global:') ? undefined : name
+                  name,
+                  name.startsWith('global:')
                 )
               )
             )

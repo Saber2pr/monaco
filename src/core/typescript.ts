@@ -58,7 +58,8 @@ const ExtraLibs = {}
 export const addModuleDeclaration = async (
   monaco: IMonaco,
   url: string,
-  moduleName?: string
+  moduleName?: string,
+  isGlobal?: boolean
 ) => {
   const key = url
   if (key in ExtraLibs) {
@@ -83,6 +84,7 @@ export const addModuleDeclaration = async (
   const wrapped = moduleName
     ? `declare module "${moduleName}" { ${text} }`
     : text
-  const lib = addExtraLib(monaco, wrapped, moduleName)
+
+  const lib = addExtraLib(monaco, wrapped, isGlobal ? undefined : moduleName)
   ExtraLibs[key] = lib
 }
