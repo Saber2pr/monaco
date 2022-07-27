@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.40](https://github.com/Saber2pr/monaco/compare/v0.0.39...v0.0.40) (2022-07-27)
+
+
+### Features
+
+* config loader ([ac43352](https://github.com/Saber2pr/monaco/commit/ac43352b1ad9ee6f1936a690773b5468d19fd67d))
+
 ### [0.0.39](https://github.com/Saber2pr/monaco/compare/v0.0.38...v0.0.39) (2022-07-27)
 
 
