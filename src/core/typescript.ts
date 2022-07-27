@@ -63,12 +63,17 @@ export const addModuleDeclaration = async (
     return ExtraLibs[key]
   }
 
-  const text = await fetch(url).then(res => res.text())
+  let text = ''
+  try {
+    text = await fetch(url).then(res => res.text())
+  } catch (error) {}
 
-  const paths = getReferencePaths(text)
-  await Promise.all(
-    paths.map(path => addModuleDeclaration(monaco, resolvePath(url, path)))
-  )
+  if (text) {
+    const paths = getReferencePaths(text)
+    await Promise.all(
+      paths.map(path => addModuleDeclaration(monaco, resolvePath(url, path)))
+    )
+  }
 
   const wrapped = moduleName
     ? `declare module "${moduleName}" { ${text} }`
