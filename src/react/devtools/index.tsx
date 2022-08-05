@@ -59,3 +59,5 @@ export const DevTools: React.FC<DevToolProps> = (props) => {
     </Container>
   )
 }
+
+export default DevTools

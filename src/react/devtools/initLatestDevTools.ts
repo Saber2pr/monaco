@@ -3,7 +3,7 @@ import {
   activate,
 } from 'react-devtools-inline/backend'
 
-async function initializeReactDevToolsLegacy() {
+export async function initializeReactDevToolsLegacy() {
   if (!window.opener) {
     // The dispatch needs to happen before initializing, so that the backend can already listen
     window.parent.postMessage({ type: 'activate-react-devtools' }, '*')
@@ -23,5 +23,4 @@ async function initializeReactDevToolsLegacy() {
   }
 }
 
-// @ts-ignore
-window.initializeReactDevToolsLegacy = initializeReactDevToolsLegacy
+export default initializeReactDevToolsLegacy
