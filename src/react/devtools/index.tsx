@@ -3,7 +3,7 @@ import * as reactDevtools from 'react-devtools-inline/frontend'
 import { Container } from './index.style'
 
 const timeout = (delay = 1000) =>
-  new Promise((resolve) => setTimeout(resolve, delay))
+  new Promise(resolve => setTimeout(resolve, delay))
 
 export type StatusType = 'info' | 'warning' | 'error' | 'success' | 'clear'
 
@@ -11,9 +11,10 @@ export type DevToolProps = {
   hidden?: boolean
   sandboxId?: string
   browserTheme?: 'light' | 'dark'
+  [k: string]: any
 }
 
-export const DevTools: React.FC<DevToolProps> = (props) => {
+export const DevTools: React.FC<DevToolProps> = props => {
   const [ReactDevTools, setDevTools] = useState(null)
   const unmounted = React.useRef(false)
 
@@ -31,7 +32,7 @@ export const DevTools: React.FC<DevToolProps> = (props) => {
     if (iframe) {
       const { contentWindow } = iframe
 
-      window.addEventListener('message', (event) => {
+      window.addEventListener('message', event => {
         const message = event.data
         if (message.type === 'activate-react-devtools') {
           setDevTools(reactDevtools.initialize(contentWindow))
@@ -54,8 +55,13 @@ export const DevTools: React.FC<DevToolProps> = (props) => {
   return (
     <Container>
       {ReactDevTools ? (
-        <ReactDevTools {...props} browserTheme={props.browserTheme || 'light'} />
-      ): <span style={{color: '#000'}}>[Waiting for Sandbox]...</span>}
+        <ReactDevTools
+          {...props}
+          browserTheme={props.browserTheme || 'light'}
+        />
+      ) : (
+        <span style={{ color: '#000' }}>[Waiting for Sandbox]...</span>
+      )}
     </Container>
   )
 }
