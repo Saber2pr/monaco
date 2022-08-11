@@ -358,25 +358,25 @@ Inspector.prototype = {
   highlight: function () {},
 
   activate: function () {
-    this.getNodes()
+    if (!this.$active) {
+      this.$active = true
+      this.getNodes()
+    }
   },
 
   deactivate: function () {
-    this.$wrap.classList.add('-out')
-    document.removeEventListener('mousemove', this.log)
-    setTimeout(
-      function () {
-        document.body.removeChild(this.$host)
-      }.bind(this),
-      600
-    )
+    if (this.$active) {
+      this.$active = false
+      this.$wrap.classList.add('-out')
+      document.removeEventListener('mousemove', this.log)
+      setTimeout(
+        function () {
+          document.body.removeChild(this.$host)
+        }.bind(this),
+        600
+      )
+    }
   },
 }
 
-var inspector: {
-  activate: VoidFunction
-  deactivate: VoidFunction
-  log(event: { target: HTMLElement }): void
-} = new Inspector()
-
-export { inspector }
+export { Inspector }

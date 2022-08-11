@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import * as reactDevtools from 'react-devtools-inline/frontend'
 import { Container } from './index.style'
+import { initWallEvents } from './install-sandbox/initWallEvents'
 
 const timeout = (delay = 1000) =>
   new Promise(resolve => setTimeout(resolve, delay))
@@ -35,7 +36,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
 
       window.addEventListener('message', event => {
         const message = event.data
-        props.onMessage && props.onMessage(message)
+        initWallEvents(props.sandboxId, message)
         if (message.type === 'activate-react-devtools') {
           setDevTools(reactDevtools.initialize(contentWindow))
         }
