@@ -11,6 +11,7 @@ export type DevToolProps = {
   hidden?: boolean
   sandboxId?: string
   browserTheme?: 'light' | 'dark'
+  onMessage?(data: any): void
   [k: string]: any
 }
 
@@ -34,6 +35,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
 
       window.addEventListener('message', event => {
         const message = event.data
+        props.onMessage && props.onMessage(message)
         if (message.type === 'activate-react-devtools') {
           setDevTools(reactDevtools.initialize(contentWindow))
         }
