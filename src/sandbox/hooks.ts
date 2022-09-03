@@ -21,7 +21,7 @@ export const ConsoleHook = `<script data-type="${KEYS.__SANDBOX_HOOK__}">
 	self.addEventListener('message', event => {
 		var data = event.data
 		if(data && data.method === "${KEYS.__MESSAGE_CONSOLE_EXEC__}") {
-			self.eval(event.value)
+			self.eval(data.value)
 		}
 	})
 })()</script>`
