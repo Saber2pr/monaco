@@ -15,7 +15,13 @@ export const ConsoleHook = `<script data-type="${KEYS.__SANDBOX_HOOK__}">
 		var output = Array.from(arguments).join(" ")
 		parent.postMessage({method: "${KEYS.__MESSAGE_CONSOLE__}", value: output}, parent.location.origin)
 	}
-	window.addEventListener('error', event => {
+	self.addEventListener('error', event => {
 		parent.postMessage({method: "${KEYS.__MESSAGE_CONSOLE_ERROR__}", value: event.message}, parent.location.origin)
+	})
+	self.addEventListener('message', event => {
+		var data = event.data
+		if(data && data.method === "${KEYS.__MESSAGE_CONSOLE_EXEC__}") {
+			self.eval(event.value)
+		}
 	})
 })()</script>`

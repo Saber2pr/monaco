@@ -31,6 +31,7 @@ export namespace KEYS {
   // message types
   export const __MESSAGE_CONSOLE__ = '__MESSAGE_CONSOLE__'
   export const __MESSAGE_CONSOLE_ERROR__ = '__MESSAGE_CONSOLE_ERROR__'
+  export const __MESSAGE_CONSOLE_EXEC__ = '__MESSAGE_CONSOLE_EXEC__'
 }
 
 export const ThemesUri = 'https://cdn.jsdelivr.net/npm/monaco-themes/themes/'
