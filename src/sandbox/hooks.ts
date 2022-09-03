@@ -22,7 +22,7 @@ export const ConsoleHook = `<script data-type="${KEYS.__SANDBOX_HOOK__}">
 		var data = event.data
 		if(data && data.method === "${KEYS.__MESSAGE_CONSOLE_EXEC__}") {
 			var result = self.eval(decodeURI(data.value))
-			parent.postMessage({method: "${KEYS.__MESSAGE_CONSOLE__}", value: result}, parent.location.origin)
+			parent.postMessage({method: "${KEYS.__MESSAGE_CONSOLE__}", value: String(result)}, parent.location.origin)
 		}
 	})
 })()</script>`
