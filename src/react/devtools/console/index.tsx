@@ -76,3 +76,5 @@ export const ConsolePanel: React.FC<ConsolePanelProps> = ({ sandboxId }) => {
 
   return <Container ref={console_ref}></Container>
 }
+
+export default ConsolePanel
