@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.58](https://github.com/Saber2pr/monaco/compare/v0.0.57...v0.0.58) (2022-09-11)
+
+
+### Features
+
+* getNavigationBarItems ([0f37afd](https://github.com/Saber2pr/monaco/commit/0f37afde3bc825613e0d09887a0cf6ba90a180cb))
+
 ### [0.0.57](https://github.com/Saber2pr/monaco/compare/v0.0.56...v0.0.57) (2022-09-04)
 
 ### [0.0.56](https://github.com/Saber2pr/monaco/compare/v0.0.55...v0.0.56) (2022-09-04)
