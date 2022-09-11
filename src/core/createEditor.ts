@@ -211,6 +211,9 @@ export async function createEditor(
   const addModuleDeclaration = (url: string, moduleName?: string) =>
     ts.addModuleDeclaration(monaco, url, moduleName)
 
+  const getNavigationBarItems = (uri?: InstanceType<IMonaco['Uri']>) =>
+    ts.getNavigationBarItems(monaco, uri || getModel()?.uri)
+
   return {
     monaco,
     setValue,
@@ -236,6 +239,7 @@ export async function createEditor(
     compileTS,
     updateCompilerOptions,
     addModuleDeclaration,
+    getNavigationBarItems,
   }
 }
 

@@ -6,6 +6,7 @@
  */
 import { getReferencePaths, resolvePath } from '../utils'
 import { CompilerOptions, IMonaco } from './monaco'
+import type typescript from 'typescript'
 
 export const getTypescriptDefaults = (monaco: IMonaco) =>
   monaco.languages.typescript.typescriptDefaults
@@ -41,6 +42,16 @@ export const compileTS = async (
     output: files.text,
     diagnostics,
   }
+}
+
+export const getNavigationBarItems = async (
+  monaco: IMonaco,
+  uri: InstanceType<IMonaco['Uri']>
+): Promise<typescript.NavigationBarItem[]> => {
+  const tsWorker = await monaco.languages.typescript.getTypeScriptWorker()
+  const client = await tsWorker(uri)
+  const fileName = uri.toString()
+  return client.getNavigationBarItems(fileName)
 }
 
 export const updateCompilerOptions = (
