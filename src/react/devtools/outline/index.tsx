@@ -94,3 +94,5 @@ export const Outline: React.FC<OutlineProps> = ({ api, theme = 'light' }) => {
     </Container>
   )
 }
+
+export default Outline
