@@ -11,6 +11,7 @@ import {
 import { getIcon } from './resources/icons'
 import { buildSymbolsTree } from './buildSymbolsTree'
 import { EditorAPI } from '../../../core'
+import { getArray } from '@saber2pr/utils/lib/array'
 
 export interface OutlineProps {
   api: EditorAPI
@@ -19,37 +20,44 @@ export interface OutlineProps {
 
 export const Outline: React.FC<OutlineProps> = ({ api, theme = 'light' }) => {
   const [tree, setTree] = useState<SymbolNode[]>([])
-  console.log('🚀 ~ file: index.tsx ~ line 22 ~ tree', tree)
 
   const update = async () => {
-    const tree = await api.getNavigationBarItems()
-    const bar = buildSymbolsTree(tree)
-    if (bar) {
-      setTree(bar[0].children)
+    if (api) {
+      const tree = await api.getNavigationBarItems()
+      const bar = buildSymbolsTree(getArray(tree))
+      if (bar) {
+        setTree(getArray(bar[0]?.children))
+      }
     }
   }
 
   useEffect(() => {
     if (api) {
       update()
-      const event = api.getModel().onDidChangeContent(update)
-      return () => event.dispose()
+      const model = api.getModel()
+      const event = model ? model.onDidChangeContent(update) : null
+      return () => event && event.dispose()
     }
   }, [api])
 
   const highlightNode = (node: SymbolNode) => {
-    const span = node?.symbol?.spans?.[0]
-    if (span) {
-      const start = api.getModel().getPositionAt(span.start)
-      const end = api.getModel().getPositionAt(span.start + span.length)
-      const range = new api.monaco.Range(
-        start.lineNumber,
-        start.column,
-        end.lineNumber,
-        end.column
-      )
-      api.getInstance().setSelection(range)
-      api.getInstance().revealRange(range)
+    if (api) {
+      const span = node?.symbol?.spans?.[0]
+      if (span) {
+        const model = api.getModel()
+        if (model) {
+          const start = model.getPositionAt(span.start)
+          const end = model.getPositionAt(span.start + span.length)
+          const range = new api.monaco.Range(
+            start.lineNumber,
+            start.column,
+            end.lineNumber,
+            end.column
+          )
+          api.getInstance().setSelection(range)
+          api.getInstance().revealRange(range)
+        }
+      }
     }
   }
 
@@ -68,7 +76,7 @@ export const Outline: React.FC<OutlineProps> = ({ api, theme = 'light' }) => {
           <></>
         )}
         <ItemList>
-          {node.children.map((item, index) =>
+          {getArray(node.children).map((item, index) =>
             renderTree(item, index, depth + 1)
           )}
         </ItemList>
@@ -81,6 +89,8 @@ export const Outline: React.FC<OutlineProps> = ({ api, theme = 'light' }) => {
   }
 
   return (
-    <Container>{tree.map((node, index) => renderTree(node, index))}</Container>
+    <Container>
+      {getArray(tree).map((node, index) => renderTree(node, index))}
+    </Container>
   )
 }
