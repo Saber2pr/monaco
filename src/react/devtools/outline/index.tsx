@@ -15,7 +15,7 @@ import { getArray } from '@saber2pr/utils/lib/array'
 
 export interface OutlineProps {
   api: EditorAPI
-  theme: 'light' | 'dark'
+  theme?: 'light' | 'dark'
 }
 
 export const Outline: React.FC<OutlineProps> = ({ api, theme = 'light' }) => {
