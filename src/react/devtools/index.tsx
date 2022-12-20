@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import * as reactDevtools from 'react-devtools-inline/frontend'
+import { createSocketBridgeWall } from './bridge/client'
 import { Container } from './index.style'
 
 const timeout = (delay = 1000) =>
@@ -12,6 +13,7 @@ export type DevToolProps = {
   sandboxId?: string
   browserTheme?: 'light' | 'dark'
   onMessage?(data: any): void
+  useSocket?: boolean
   [k: string]: any
 }
 
@@ -33,12 +35,25 @@ export const DevTools: React.FC<DevToolProps> = props => {
     if (iframe) {
       const { contentWindow } = iframe
 
-      window.addEventListener('message', event => {
-        const message = event.data
-        if (message.type === 'activate-react-devtools') {
-          setDevTools(reactDevtools.initialize(contentWindow))
-        }
-      })
+      if (props.useSocket) {
+        const wall = await createSocketBridgeWall()
+        const bridge = reactDevtools.createBridge(contentWindow, wall)
+        const store = reactDevtools.createStore(bridge)
+        const ops = { bridge, store }
+        window.addEventListener('message', event => {
+          const message = event.data
+          if (message.type === 'activate-react-devtools') {
+            setDevTools(reactDevtools.initialize(contentWindow))
+          }
+        })
+      } else {
+        window.addEventListener('message', event => {
+          const message = event.data
+          if (message.type === 'activate-react-devtools') {
+            setDevTools(reactDevtools.initialize(contentWindow))
+          }
+        })
+      }
     }
   }, [])
 
