@@ -1,14 +1,19 @@
-import { DEFAULT_PORT, DEFAULT_SOCKETURL } from './config'
+import {
+  DEFAULT_PORT,
+  DEFAULT_SOCKETURL,
+  DEFAULT_UID_BACKEND,
+  DEFAULT_UID_FRONTEND,
+} from './config'
 import { Server } from 'socket.io'
 
 export interface CreateSocketBridgeWallServerOps {
-  frontendUid: string
-  backendUid: string
+  frontendUid?: string
+  backendUid?: string
 }
 
 export const createSocketBridgeWallServer = ({
-  frontendUid,
-  backendUid,
+  frontendUid = DEFAULT_UID_FRONTEND,
+  backendUid = DEFAULT_UID_BACKEND,
 }: CreateSocketBridgeWallServerOps) => {
   const io = new Server({
     cors: {
