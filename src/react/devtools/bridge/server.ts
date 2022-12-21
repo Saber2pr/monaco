@@ -36,10 +36,15 @@ export const createSocketBridgeWallServer = ({
     // proxy message
     socket.on('message', data => {
       console.log(`[bridge proxy] ${JSON.stringify(data)}`)
+      let res = null
       if (data.uid === frontendUid) {
-        socket.emit({ ...data, uid: backendUid })
+        res = { ...data, uid: backendUid }
       } else if (data.uid === backendUid) {
-        socket.emit({ ...data, uid: frontendUid })
+        res = { ...data, uid: frontendUid }
+      }
+      if (res) {
+        console.log(`[bridge proxy res] ${JSON.stringify(res)}`)
+        socket.broadcast.emit('message', res)
       }
     })
   })
