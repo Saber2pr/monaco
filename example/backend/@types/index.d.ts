@@ -1,0 +1,3 @@
+interface IConfig {
+  test: string
+}
