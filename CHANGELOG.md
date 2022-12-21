@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.63](https://github.com/Saber2pr/monaco/compare/v0.0.62...v0.0.63) (2022-12-21)
+
+
+### Features
+
+* socket proxy ([98a8e41](https://github.com/Saber2pr/monaco/commit/98a8e414587fe3a1ce737ec1aa3f8ea538ad59f0))
+
 ### [0.0.62](https://github.com/Saber2pr/monaco/compare/v0.0.61...v0.0.62) (2022-09-12)
 
 ### [0.0.61](https://github.com/Saber2pr/monaco/compare/v0.0.60...v0.0.61) (2022-09-12)
