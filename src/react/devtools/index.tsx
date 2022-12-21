@@ -31,7 +31,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
       const store = reactDevtools.createStore(bridge)
       const ops = { bridge, store }
       wall.listen(message => {
-        if (message.type === 'activate-react-devtools') {
+        if (message.event === 'activate-react-devtools') {
           setDevTools(reactDevtools.initialize(window, ops))
         }
       })
