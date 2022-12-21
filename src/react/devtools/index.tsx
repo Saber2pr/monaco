@@ -27,11 +27,11 @@ export const DevTools: React.FC<DevToolProps> = props => {
       const wall = await createSocketBridgeWall({
         UID: DEFAULT_UID_FRONTEND,
       })
-      const bridge = reactDevtools.createBridge(window, wall)
-      const store = reactDevtools.createStore(bridge)
-      const ops = { bridge, store }
       wall.listen(message => {
         if (message.event === 'activate-react-devtools') {
+          const bridge = reactDevtools.createBridge(window, wall)
+          const store = reactDevtools.createStore(bridge)
+          const ops = { bridge, store }
           setDevTools(reactDevtools.initialize(window, ops))
         }
       })

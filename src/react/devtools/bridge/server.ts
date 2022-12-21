@@ -10,6 +10,7 @@ import { DefaultEventsMap } from 'socket.io/dist/typed-events'
 export interface CreateSocketBridgeWallServerOps {
   frontendUid?: string
   backendUid?: string
+  port?: number
   onConnection?: (
     socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>
   ) => void
@@ -18,9 +19,10 @@ export interface CreateSocketBridgeWallServerOps {
 export const createSocketBridgeWallServer = ({
   frontendUid = DEFAULT_UID_FRONTEND,
   backendUid = DEFAULT_UID_BACKEND,
+  port = DEFAULT_PORT,
   onConnection,
 }: CreateSocketBridgeWallServerOps) => {
-  const io = new Server(DEFAULT_PORT, {
+  const io = new Server(port, {
     cors: {
       origin: '*',
       methods: ['GET', 'POST'],
