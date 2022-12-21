@@ -23,31 +23,32 @@ export const DevTools: React.FC<DevToolProps> = props => {
   const unmounted = React.useRef(false)
 
   const loadIframe = useCallback(async () => {
-    let iframe = document.getElementById(props.sandboxId) as HTMLIFrameElement
+    if (props.useSocket) {
+      const wall = await createSocketBridgeWall({
+        UID: DEFAULT_UID_FRONTEND,
+      })
+      const bridge = reactDevtools.createBridge(window, wall)
+      const store = reactDevtools.createStore(bridge)
+      const ops = { bridge, store }
+      wall.listen(event => {
+        const message = event.data
+        if (message.type === 'activate-react-devtools') {
+          setDevTools(reactDevtools.initialize(window, ops))
+        }
+      })
+    } else {
+      let iframe = document.getElementById(props.sandboxId) as HTMLIFrameElement
 
-    // iframe hasn't initialized or just isn't there
-    while (iframe === null && !unmounted.current) {
-      // Retry every second
-      // eslint-disable-next-line
-      await timeout(1000)
-      iframe = document.getElementById(props.sandboxId) as HTMLIFrameElement
-    }
+      // iframe hasn't initialized or just isn't there
+      while (iframe === null && !unmounted.current) {
+        // Retry every second
+        // eslint-disable-next-line
+        await timeout(1000)
+        iframe = document.getElementById(props.sandboxId) as HTMLIFrameElement
+      }
 
-    if (iframe) {
-      const { contentWindow } = iframe
-
-      if (props.useSocket) {
-        const wall = await createSocketBridgeWall({ UID: DEFAULT_UID_FRONTEND })
-        const bridge = reactDevtools.createBridge(contentWindow, wall)
-        const store = reactDevtools.createStore(bridge)
-        const ops = { bridge, store }
-        wall.listen(event => {
-          const message = event.data
-          if (message.type === 'activate-react-devtools') {
-            setDevTools(reactDevtools.initialize(contentWindow, ops))
-          }
-        })
-      } else {
+      if (iframe) {
+        const { contentWindow } = iframe
         window.addEventListener('message', event => {
           const message = event.data
           if (message.type === 'activate-react-devtools') {
