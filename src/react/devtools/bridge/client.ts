@@ -1,5 +1,6 @@
 import { io } from 'socket.io-client'
 import { DEFAULT_SOCKETURL, DEFAULT_UID_FRONTEND } from './config'
+import { nanoid } from 'nanoid'
 
 export interface CreateSocketBridgeWallOps {
   socketUrl?: string
@@ -36,7 +37,7 @@ export const createSocketBridgeWall = ({
           })
         },
         send(event, payload) {
-          const data = { event, payload, uid: UID, t: Date.now() }
+          const data = { event, payload, uid: UID, t: nanoid() }
           socket.emit('message', data)
         },
         close: () => socket.close(),
