@@ -35,6 +35,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
           setDevTools(reactDevtools.initialize(window, ops))
         }
       })
+      return wall
     } else {
       let iframe = document.getElementById(props.sandboxId) as HTMLIFrameElement
 
@@ -59,9 +60,12 @@ export const DevTools: React.FC<DevToolProps> = props => {
   }, [])
 
   useEffect(() => {
-    loadIframe()
+    const res = loadIframe()
     return () => {
       unmounted.current = true
+      if (res) {
+        res.then(wall => wall && wall.close())
+      }
     }
   }, [loadIframe])
 

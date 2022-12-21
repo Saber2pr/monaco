@@ -12,6 +12,8 @@ export interface BridgeWall {
   close: VoidFunction
 }
 
+const cache = new Set()
+
 export const createSocketBridgeWall = ({
   socketUrl = DEFAULT_SOCKETURL,
   UID = DEFAULT_UID_FRONTEND,
@@ -23,16 +25,18 @@ export const createSocketBridgeWall = ({
       const wall = {
         listen(listener) {
           socket.on('message', data => {
-            console.log(
-              `[bridge client msg] ${UID} receive ${JSON.stringify(data)}`
-            )
-            if (data.uid === UID) {
+            console.log(`[socket msg] ${JSON.stringify(data)}`)
+            if (data.uid === UID && !cache.has(data.t)) {
+              console.log(
+                `[bridge client msg] ${UID} receive ${JSON.stringify(data)}`
+              )
               listener(data)
+              cache.add(data.t)
             }
           })
         },
         send(event, payload) {
-          const data = { event, payload, uid: UID }
+          const data = { event, payload, uid: UID, t: Date.now() }
           socket.emit('message', data)
         },
         close: () => socket.close(),
