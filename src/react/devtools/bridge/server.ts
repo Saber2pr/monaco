@@ -4,16 +4,21 @@ import {
   DEFAULT_UID_BACKEND,
   DEFAULT_UID_FRONTEND,
 } from './config'
-import { Server } from 'socket.io'
+import { Server, Socket } from 'socket.io'
+import { DefaultEventsMap } from 'socket.io/dist/typed-events'
 
 export interface CreateSocketBridgeWallServerOps {
   frontendUid?: string
   backendUid?: string
+  onConnection?: (
+    socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>
+  ) => void
 }
 
 export const createSocketBridgeWallServer = ({
   frontendUid = DEFAULT_UID_FRONTEND,
   backendUid = DEFAULT_UID_BACKEND,
+  onConnection,
 }: CreateSocketBridgeWallServerOps) => {
   const io = new Server(DEFAULT_PORT, {
     cors: {
@@ -25,6 +30,7 @@ export const createSocketBridgeWallServer = ({
   })
 
   io.on('connection', socket => {
+    onConnection && onConnection(socket)
     console.log('[bridge connection]')
 
     // proxy message

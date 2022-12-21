@@ -23,6 +23,7 @@ export const createSocketBridgeWall = ({
       const wall = {
         listen(listener) {
           socket.on('message', data => {
+            console.log(`[bridge client msg] ${JSON.stringify(data)}`)
             if (data.uid === UID) {
               listener(data)
             }
