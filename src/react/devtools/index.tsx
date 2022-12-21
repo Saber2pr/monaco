@@ -40,10 +40,10 @@ export const DevTools: React.FC<DevToolProps> = props => {
         const bridge = reactDevtools.createBridge(contentWindow, wall)
         const store = reactDevtools.createStore(bridge)
         const ops = { bridge, store }
-        window.addEventListener('message', event => {
+        wall.listen(event => {
           const message = event.data
           if (message.type === 'activate-react-devtools') {
-            setDevTools(reactDevtools.initialize(contentWindow))
+            setDevTools(reactDevtools.initialize(contentWindow, ops))
           }
         })
       } else {
