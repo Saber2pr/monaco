@@ -1,3 +1,4 @@
+import { DEFAULT_UID_BACKEND } from './../bridge/config'
 import {
   initialize as initializeDevTools,
   activate,
@@ -9,7 +10,7 @@ import { createSocketBridgeWall } from '../bridge/client'
 export async function initializeReactDevToolsLegacyWall() {
   if (!window.opener) {
     // create socket connection
-    const wall = await createSocketBridgeWall()
+    const wall = await createSocketBridgeWall({ UID: DEFAULT_UID_BACKEND })
     const bridge = createBridge(global, wall)
 
     // The dispatch needs to happen before initializing, so that the backend can already listen

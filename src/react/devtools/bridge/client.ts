@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client'
-import { DEFAULT_SOCKETURL, DEFAULT_UID } from './config'
+import { DEFAULT_SOCKETURL, DEFAULT_UID_FRONTEND } from './config'
 
 export interface CreateSocketBridgeWallOps {
   socketUrl?: string
@@ -14,7 +14,7 @@ export interface BridgeWall {
 
 export const createSocketBridgeWall = ({
   socketUrl = DEFAULT_SOCKETURL,
-  UID = DEFAULT_UID,
+  UID = DEFAULT_UID_FRONTEND,
 }: CreateSocketBridgeWallOps = {}) => {
   return new Promise<BridgeWall>((resolve, reject) => {
     const socket = io(socketUrl)

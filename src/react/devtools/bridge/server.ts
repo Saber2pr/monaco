@@ -1,7 +1,15 @@
 import { DEFAULT_PORT, DEFAULT_SOCKETURL } from './config'
 import { Server } from 'socket.io'
 
-export const createSocketBridgeWallServer = () => {
+export interface CreateSocketBridgeWallServerOps {
+  frontendUid: string
+  backendUid: string
+}
+
+export const createSocketBridgeWallServer = ({
+  frontendUid,
+  backendUid,
+}: CreateSocketBridgeWallServerOps) => {
   const io = new Server({
     cors: {
       origin: '*',
@@ -12,6 +20,17 @@ export const createSocketBridgeWallServer = () => {
   })
 
   io.listen(DEFAULT_PORT)
-  console.log(`[bridge socket]`, DEFAULT_SOCKETURL)
+
+  // proxy message
+  io.on('message', data => {
+    console.log(`[bridge proxy] ${JSON.stringify(data)}`)
+    if (data.uid === frontendUid) {
+      io.emit({ ...data, uid: backendUid })
+    } else if (data.uid === backendUid) {
+      io.emit({ ...data, uid: frontendUid })
+    }
+  })
+
+  console.log(`[bridge proxy socket]`, DEFAULT_SOCKETURL)
   return io
 }

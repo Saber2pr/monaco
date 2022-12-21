@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import * as reactDevtools from 'react-devtools-inline/frontend'
 import { createSocketBridgeWall } from './bridge/client'
+import { DEFAULT_UID_FRONTEND } from './bridge/config'
 import { Container } from './index.style'
 
 const timeout = (delay = 1000) =>
@@ -36,7 +37,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
       const { contentWindow } = iframe
 
       if (props.useSocket) {
-        const wall = await createSocketBridgeWall()
+        const wall = await createSocketBridgeWall({ UID: DEFAULT_UID_FRONTEND })
         const bridge = reactDevtools.createBridge(contentWindow, wall)
         const store = reactDevtools.createStore(bridge)
         const ops = { bridge, store }
