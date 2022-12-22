@@ -91,17 +91,5 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 1000,
     ignored: /node_modules|lib/,
-  },
-  // 代码分割
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        vendors: {
-          name: 'vendors',
-          test: /[\\/]node_modules[\\/]/,
-        },
-      },
-    },
-  },
+  }
 }
