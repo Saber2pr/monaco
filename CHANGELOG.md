@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.83](https://github.com/Saber2pr/monaco/compare/v0.0.82...v0.0.83) (2022-12-22)
+
+
+### Features
+
+* debug ([a85d73a](https://github.com/Saber2pr/monaco/commit/a85d73a0a7c2e8fa53d1da05ee7a76ac5cfe14d8))
+
 ### [0.0.82](https://github.com/Saber2pr/monaco/compare/v0.0.81...v0.0.82) (2022-12-22)
 
 ### [0.0.81](https://github.com/Saber2pr/monaco/compare/v0.0.80...v0.0.81) (2022-12-22)
