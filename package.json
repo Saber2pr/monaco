@@ -19,7 +19,8 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc && yarn copyfiles -u 1 ./src/**/*.svg lib ",
-    "prepublishOnly": "yarn build",
+    "build:backend": "cd ./example/backend && yarn && yarn build && cp ./build/backend.min.js ../../lib/backend.min.js",
+    "prepublishOnly": "yarn build && yarn build:backend",
     "release": "standard-version",
     "docs": "typedoc src/index.ts",
     "lint": "prettier --write ./src"

@@ -7,3 +7,4 @@ lib/
 yarn.lock
 coverage
 test.js
+*.log
