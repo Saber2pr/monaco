@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
+const isDev = process.env.NODE_ENV === 'development'
+
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
 
@@ -11,26 +13,37 @@ const publicPath = (resourcePath, context) =>
 // 这里写cdn地址，如果静态资源有上传的话
 const cdn = '/'
 
+const entry = {
+  'backend.dev': path.join(
+    __dirname,
+    '../../lib/react/devtools/install-sandbox-wall/index.dev.js'
+  ),
+  app: './src/app.tsx',
+}
+
+if (!isDev) {
+  entry.backend = path.join(
+    __dirname,
+    '../../lib/react/devtools/install-sandbox-wall/index.js'
+  )
+}
+
 /**
  * @type {webpack.Configuration}
  */
 module.exports = {
-  entry: {
-    backend: path.join(__dirname, '../../lib/react/devtools/install-sandbox-wall/index.js'),
-    'backend.dev': path.join(__dirname, '../../lib/react/devtools/install-sandbox-wall/index.dev.js'),
-    app: './src/app.tsx',
-  },
+  entry,
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'build'),
-    publicPath:
-      process.env.NODE_ENV === 'production' ? cdn : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? cdn : '/',
     libraryTarget: 'window',
     library: '[name]',
   },
+  externals: ['backend.dev'],
   /**
    * @type {webpackDevServer.Configuration}
    */
@@ -92,5 +105,5 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 1000,
     ignored: /node_modules|lib/,
-  }
+  },
 }
