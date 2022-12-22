@@ -1,28 +1,18 @@
 import 'normalize.css'
 
-import React, { useEffect } from 'react'
-import ReactDOM from 'react-dom'
-import { Button } from 'antd'
-import { DownloadOutlined } from '@ant-design/icons'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-import { Title } from './app.style'
-import { View } from '@/components'
+import Devtools from '../../../lib/react/devtools'
 
 export const App = () => {
-  useEffect(() => {
-    const a: IConfig = { test: '' }
-    console.log('test')
-  }, [])
   return (
-    <>
-      <Title />
-      <main>
-        <View />
-        <Button icon={<DownloadOutlined />}>test</Button>
-      </main>
-      <footer>footer</footer>
-    </>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Devtools useSocket />
+    </div>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(<App />)

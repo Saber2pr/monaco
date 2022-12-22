@@ -21,7 +21,7 @@ export const createSocketBridgeWallServer = ({
   backendUid = DEFAULT_UID_BACKEND,
   port = DEFAULT_PORT,
   onConnection,
-}: CreateSocketBridgeWallServerOps) => {
+}: CreateSocketBridgeWallServerOps = {}) => {
   const io = new Server(port, {
     cors: {
       origin: '*',
@@ -37,7 +37,6 @@ export const createSocketBridgeWallServer = ({
 
     // proxy message
     socket.on('message', data => {
-      console.log(`[bridge proxy] ${JSON.stringify(data)}`)
       let res = null
       if (data.uid === frontendUid) {
         res = { ...data, uid: backendUid }
@@ -54,3 +53,5 @@ export const createSocketBridgeWallServer = ({
   console.log(`[bridge proxy socket]`, DEFAULT_SOCKETURL)
   return io
 }
+
+export default createSocketBridgeWallServer

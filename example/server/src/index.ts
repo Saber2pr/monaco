@@ -1,2 +1,3 @@
-export * from './core'
-export * from './utils'
+import { createSocketBridgeWallServer } from '../../../lib/react/devtools/bridge/server'
+
+createSocketBridgeWallServer()

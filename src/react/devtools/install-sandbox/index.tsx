@@ -1,6 +1,6 @@
 import initializeReactDevToolsLegacy from './initializeReactDevToolsLegacy'
 
 // @ts-ignore
-window.installSandbox = async () => {
-  await initializeReactDevToolsLegacy()
+window.installSandbox = () => {
+  initializeReactDevToolsLegacy()
 }

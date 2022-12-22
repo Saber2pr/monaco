@@ -15,15 +15,20 @@ const cdn = '/'
  * @type {webpack.Configuration}
  */
 module.exports = {
-  entry: './src/app.tsx',
+  entry: {
+    backend: path.join(__dirname, '../../lib/react/devtools/install-sandbox-wall/index.js'),
+    app: './src/app.tsx',
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
-    filename: '[name].[hash].min.js',
+    filename: '[name].min.js',
     path: path.join(__dirname, 'build'),
     publicPath:
       process.env.NODE_ENV === 'production' ? cdn : '/',
+    libraryTarget: 'window',
+    library: '[name]',
   },
   /**
    * @type {webpackDevServer.Configuration}

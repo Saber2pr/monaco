@@ -16,30 +16,26 @@ export const createSocketBridgeWall = ({
   socketUrl = DEFAULT_SOCKETURL,
   UID = DEFAULT_UID_FRONTEND,
 }: CreateSocketBridgeWallOps = {}) => {
-  return new Promise<BridgeWall>((resolve, reject) => {
-    const socket = io(socketUrl)
-    socket.on('error', reject)
-    socket.on('connect', () => {
-      const wall = {
-        listen(listener) {
-          socket.on('message', data => {
-            console.log(`[socket msg] ${JSON.stringify(data)}`)
-            if (data.uid === UID) {
-              console.log(
-                `[bridge client msg] ${UID} receive ${JSON.stringify(data)}`
-              )
-              listener(data)
-            }
-          })
-        },
-        send(event, payload) {
-          const data = { event, payload, uid: UID }
-          socket.emit('message', data)
-        },
-        close: () => socket.close(),
+  const socket = io(socketUrl)
+  const wall = {
+    listen(listener) {
+      const handle = data => {
+        if (data.uid === UID) {
+          console.log(
+            `[bridge client msg] ${UID} receive ${JSON.stringify(data)}`
+          )
+          listener(data)
+        }
       }
-      resolve(wall)
-    })
-    socket.on('disconnect', () => {})
-  })
+      socket.on('message', handle)
+      return () => socket.off('message', handle)
+    },
+    send(event, payload) {
+      const data = { event, payload, uid: UID }
+      socket.emit('message', data)
+    },
+    close: () => socket.disconnect(),
+  }
+
+  return wall
 }

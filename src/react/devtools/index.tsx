@@ -24,18 +24,20 @@ export const DevTools: React.FC<DevToolProps> = props => {
 
   const loadIframe = useCallback(async () => {
     if (props.useSocket) {
-      const wall = await createSocketBridgeWall({
+      const wall = createSocketBridgeWall({
         UID: DEFAULT_UID_FRONTEND,
       })
-      wall.listen(message => {
+      const cancel = wall.listen(message => {
         if (message.event === 'activate-react-devtools') {
           const bridge = reactDevtools.createBridge(window, wall)
           const store = reactDevtools.createStore(bridge)
-          const ops = { bridge, store }
-          setDevTools(reactDevtools.initialize(window, ops))
+          setDevTools(reactDevtools.initialize(window, { bridge, store }))
         }
       })
-      return wall
+      return () => {
+        cancel && cancel()
+        wall.close()
+      }
     } else {
       let iframe = document.getElementById(props.sandboxId) as HTMLIFrameElement
 
@@ -64,7 +66,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
     return () => {
       unmounted.current = true
       if (res) {
-        res.then(wall => wall && wall.close())
+        res.then(clean => clean && clean())
       }
     }
   }, [loadIframe])

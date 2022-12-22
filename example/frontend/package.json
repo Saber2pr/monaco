@@ -7,8 +7,7 @@
     "start": "cross-env NODE_ENV=development webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "lint": "prettier --write ./src",
-    "build": "rimraf ./build && cross-env NODE_ENV=production webpack",
-    "prepare": "husky install"
+    "build": "rimraf ./build && cross-env NODE_ENV=production webpack"
   },
   "license": "ISC",
   "keywords": [
@@ -20,8 +19,6 @@
   "dependencies": {
     "antd": "^4.20.6",
     "normalize.css": "^8.0.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
@@ -29,8 +26,8 @@
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.5",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
     "@types/styled-components": "^5.1.25",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^4.7.2",

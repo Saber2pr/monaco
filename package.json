@@ -34,7 +34,6 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@types/nanoid": "^3.0.0",
     "@types/node": "^16.3.3",
     "@types/react": "^17.0.43",
     "@types/styled-components": "^5.1.25",
@@ -42,6 +41,8 @@
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.1",
+    "react": "^0.0.0-experimental-2b1fb91a5-20221220",
+    "react-dom": "^0.0.0-experimental-2b1fb91a5-20221220",
     "standard-version": "^9.3.1",
     "typedoc": "^0.21.5",
     "typescript": "^4.3.5"

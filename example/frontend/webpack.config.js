@@ -18,6 +18,10 @@ module.exports = {
   entry: './src/app.tsx',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      react: path.join(__dirname, '../../node_modules/react'),
+      'react-dom': path.join(__dirname, '../../node_modules/react-dom')
+    }
   },
   output: {
     filename: '[name].[hash].min.js',

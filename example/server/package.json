@@ -17,14 +17,10 @@
   },
   "main": "./lib/index.js",
   "scripts": {
-    "test": "jest src/__tests__",
-    "test:dev": "node lib/test",
     "start": "tsc --watch",
     "prepublishOnly": "tsc",
-    "release": "standard-version",
-    "docs": "typedoc src/index.ts",
     "lint": "prettier --write ./src",
-    "prepare": "husky install"
+    "serve": "node ./lib/index"
   },
   "dependencies": {},
   "devDependencies": {
