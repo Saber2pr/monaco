@@ -16,10 +16,16 @@ export type DevToolProps = {
   onMessage?(data: any): void
   useSocket?: boolean
   debug?: boolean
+  renderLoading?: () => React.ReactNode
   [k: string]: any
 }
 
-export const DevTools: React.FC<DevToolProps> = props => {
+export const DevTools: React.FC<DevToolProps> = ({
+  renderLoading = () => (
+    <span style={{ color: '#000' }}>[Waiting for Sandbox]...</span>
+  ),
+  ...props
+}) => {
   const [ReactDevTools, setDevTools] = useState(null)
   const unmounted = React.useRef(false)
 
@@ -85,7 +91,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
           browserTheme={props.browserTheme || 'light'}
         />
       ) : (
-        <span style={{ color: '#000' }}>[Waiting for Sandbox]...</span>
+        renderLoading()
       )}
     </Container>
   )
