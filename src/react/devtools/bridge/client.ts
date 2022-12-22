@@ -4,6 +4,7 @@ import { DEFAULT_SOCKETURL, DEFAULT_UID_FRONTEND } from './config'
 export interface CreateSocketBridgeWallOps {
   socketUrl?: string
   UID?: string
+  debug?: boolean
 }
 
 export interface BridgeWall {
@@ -15,15 +16,18 @@ export interface BridgeWall {
 export const createSocketBridgeWall = ({
   socketUrl = DEFAULT_SOCKETURL,
   UID = DEFAULT_UID_FRONTEND,
+  debug = false,
 }: CreateSocketBridgeWallOps = {}) => {
   const socket = io(socketUrl)
   const wall = {
     listen(listener) {
       const handle = data => {
         if (data.uid === UID) {
-          console.log(
-            `[bridge client msg] ${UID} receive ${JSON.stringify(data)}`
-          )
+          if (debug) {
+            console.log(
+              `[bridge client msg] ${UID} receive ${JSON.stringify(data)}`
+            )
+          }
           listener(data)
         }
       }

@@ -6,11 +6,17 @@ import {
 } from 'react-devtools-inline/backend'
 import { createSocketBridgeWall } from '../bridge/client'
 
+export interface InitializeReactDevToolsLegacyWallOps {
+  debug?: boolean
+}
+
 // inject to app
-export function initializeReactDevToolsLegacyWall() {
+export function initializeReactDevToolsLegacyWall({
+  debug = false,
+}: InitializeReactDevToolsLegacyWallOps = {}) {
   if (!window.opener) {
     // create socket connection
-    const wall = createSocketBridgeWall({ UID: DEFAULT_UID_BACKEND })
+    const wall = createSocketBridgeWall({ UID: DEFAULT_UID_BACKEND, debug })
 
     // The dispatch needs to happen before initializing, so that the backend can already listen
     wall.send('activate-react-devtools', null)

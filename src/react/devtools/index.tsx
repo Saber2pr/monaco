@@ -15,6 +15,7 @@ export type DevToolProps = {
   browserTheme?: 'light' | 'dark'
   onMessage?(data: any): void
   useSocket?: boolean
+  debug?: boolean
   [k: string]: any
 }
 
@@ -26,6 +27,7 @@ export const DevTools: React.FC<DevToolProps> = props => {
     if (props.useSocket) {
       const wall = createSocketBridgeWall({
         UID: DEFAULT_UID_FRONTEND,
+        debug: !!props.debug,
       })
       const cancel = wall.listen(message => {
         if (message.event === 'activate-react-devtools') {
