@@ -19,7 +19,7 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc && yarn copyfiles -u 1 ./src/**/*.svg lib ",
-    "build:backend": "cd ./example/backend && yarn && yarn build && cp ./build/backend.min.js ../../lib/backend.min.js",
+    "build:backend": "cd ./example/backend && yarn && yarn build && cp ./build/backend.min.js ../../lib/backend.min.js && cp ./build/backend.dev.min.js ../../lib/backend.dev.min.js",
     "prepublishOnly": "yarn build && yarn build:backend",
     "release": "standard-version",
     "docs": "typedoc src/index.ts",

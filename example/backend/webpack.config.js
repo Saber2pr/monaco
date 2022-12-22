@@ -17,6 +17,7 @@ const cdn = '/'
 module.exports = {
   entry: {
     backend: path.join(__dirname, '../../lib/react/devtools/install-sandbox-wall/index.js'),
+    'backend.dev': path.join(__dirname, '../../lib/react/devtools/install-sandbox-wall/index.dev.js'),
     app: './src/app.tsx',
   },
   resolve: {
