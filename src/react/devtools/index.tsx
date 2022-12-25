@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import * as reactDevtools from 'react-devtools-inline/frontend'
+
+import { BridgeWall } from './bridge/interface'
 import { createSocketBridgeWall } from './bridge/client'
-import { DEFAULT_UID_FRONTEND } from './bridge/config'
 import { Container } from './index.style'
+import config from './bridge/config'
 
 const timeout = (delay = 1000) =>
   new Promise(resolve => setTimeout(resolve, delay))
@@ -14,27 +16,24 @@ export type DevToolProps = {
   sandboxId?: string
   browserTheme?: 'light' | 'dark'
   onMessage?(data: any): void
-  useSocket?: boolean
   debug?: boolean
+  wall?: BridgeWall
   renderLoading?: () => React.ReactNode
   [k: string]: any
 }
 
-export const DevTools: React.FC<DevToolProps> = ({
+export function DevTools({
   renderLoading = () => (
     <span style={{ color: '#000' }}>[Waiting for Sandbox]...</span>
   ),
+  wall,
   ...props
-}) => {
+}: DevToolProps) {
   const [ReactDevTools, setDevTools] = useState(null)
   const unmounted = React.useRef(false)
 
   const loadIframe = useCallback(async () => {
-    if (props.useSocket) {
-      const wall = createSocketBridgeWall({
-        UID: DEFAULT_UID_FRONTEND,
-        debug: !!props.debug,
-      })
+    if (wall) {
       const cancel = wall.listen(message => {
         if (message.event === 'activate-react-devtools') {
           const bridge = reactDevtools.createBridge(window, wall)
@@ -67,7 +66,7 @@ export const DevTools: React.FC<DevToolProps> = ({
         })
       }
     }
-  }, [])
+  }, [wall])
 
   useEffect(() => {
     const res = loadIframe()
@@ -96,5 +95,8 @@ export const DevTools: React.FC<DevToolProps> = ({
     </Container>
   )
 }
+
+DevTools.createSocketBridgeWall = createSocketBridgeWall
+DevTools.config = config
 
 export default DevTools

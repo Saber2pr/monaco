@@ -1,25 +1,22 @@
 import { io } from 'socket.io-client'
 import { DEFAULT_SOCKETURL, DEFAULT_UID_FRONTEND } from './config'
+import { BridgeWall } from './interface'
 
 export interface CreateSocketBridgeWallOps {
   socketUrl?: string
-  UID?: string
+  UID: string
   debug?: boolean
 }
 
-export interface BridgeWall {
-  listen(listener: any): void
-  send(event: any, payload: any): void
-  close: VoidFunction
-}
-
-export const createSocketBridgeWall = ({
-  socketUrl = DEFAULT_SOCKETURL,
-  UID = DEFAULT_UID_FRONTEND,
-  debug = false,
-}: CreateSocketBridgeWallOps = {}) => {
+export const createSocketBridgeWall = (
+  {
+    socketUrl = DEFAULT_SOCKETURL,
+    UID,
+    debug = false,
+  }: CreateSocketBridgeWallOps = { UID: DEFAULT_UID_FRONTEND }
+) => {
   const socket = io(socketUrl)
-  const wall = {
+  const wall: BridgeWall = {
     listen(listener) {
       const handle = data => {
         if (data.uid === UID) {

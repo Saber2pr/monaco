@@ -14,17 +14,19 @@ const publicPath = (resourcePath, context) =>
 const cdn = '/'
 
 const entry = {
-  'backend.dev': path.join(
-    __dirname,
-    '../../lib/react/devtools/install-sandbox-wall/index.dev.js'
-  ),
+  backend: './src/backend.ts',
   app: './src/app.tsx',
 }
 
-if (!isDev) {
+if (isDev) {
+} else {
   entry.backend = path.join(
     __dirname,
     '../../lib/react/devtools/install-sandbox-wall/index.js'
+  )
+  entry['backend.dev'] = path.join(
+    __dirname,
+    '../../lib/react/devtools/install-sandbox-wall/index.dev.js'
   )
 }
 
@@ -43,7 +45,6 @@ module.exports = {
     libraryTarget: 'window',
     library: '[name]',
   },
-  externals: ['backend.dev'],
   /**
    * @type {webpackDevServer.Configuration}
    */

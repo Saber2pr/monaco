@@ -8,7 +8,11 @@ import Devtools from '../../../lib/react/devtools'
 export const App = () => {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <Devtools useSocket />
+      <Devtools
+        wall={Devtools.createSocketBridgeWall({
+          UID: Devtools.config.DEFAULT_UID_FRONTEND,
+        })}
+      />
     </div>
   )
 }
