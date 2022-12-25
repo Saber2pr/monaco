@@ -11,19 +11,19 @@ export function initializeReactDevToolsLegacyByWall(wall: BridgeWall) {
   wall.send('activate-react-devtools', null)
 
   // @ts-ignore
-  if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined') {
+  if (typeof global.__REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined') {
     try {
       // @ts-ignore We need to make sure that the existing chrome extension doesn't interfere
-      delete window.__REACT_DEVTOOLS_GLOBAL_HOOK__
+      delete global.__REACT_DEVTOOLS_GLOBAL_HOOK__
     } catch (e) {
       /* ignore */
     }
   }
   // Call this before importing React (or any other packages that might import React).
-  initializeDevTools(window)
+  initializeDevTools(global)
 
-  const bridge = createBridge(window, wall)
-  activate(window, { bridge })
+  const bridge = createBridge(global, wall)
+  activate(global, { bridge })
 }
 
 export default initializeReactDevToolsLegacyByWall
