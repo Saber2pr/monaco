@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo } from 'react'
-import { Provider, useDispatch } from 'react-redux'
+import React, { useMemo } from 'react'
+import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import * as Core from '@redux-devtools/app'
