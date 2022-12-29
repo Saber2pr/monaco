@@ -1,11 +1,16 @@
+import { Server, Socket } from 'socket.io'
+import { DefaultEventsMap } from 'socket.io/dist/typed-events'
+
+import reduxDevTools from '@redux-devtools/cli'
+
 import {
+  DEFAULT_HOST,
   DEFAULT_PORT,
+  DEFAULT_REDUX_PORT,
   DEFAULT_SOCKETURL,
   DEFAULT_UID_BACKEND,
   DEFAULT_UID_FRONTEND,
 } from './config'
-import { Server, Socket } from 'socket.io'
-import { DefaultEventsMap } from 'socket.io/dist/typed-events'
 
 export interface CreateSocketBridgeWallServerOps {
   frontendUid?: string
@@ -55,3 +60,17 @@ export const createSocketBridgeWallServer = ({
 }
 
 export default createSocketBridgeWallServer
+
+export interface CreateReduxDevToolsBridgeServerOps {
+  hostname?: string
+  port?: number
+}
+
+export const createReduxDevToolsBridgeServer = (
+  { hostname, port }: CreateReduxDevToolsBridgeServerOps = {
+    hostname: DEFAULT_HOST,
+    port: DEFAULT_REDUX_PORT,
+  }
+) => {
+  return reduxDevTools({ hostname, port })
+}

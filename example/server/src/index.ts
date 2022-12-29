@@ -1,3 +1,8 @@
-import { createSocketBridgeWallServer } from '../../../lib/react/devtools/bridge/server'
+import {
+  createSocketBridgeWallServer,
+  createReduxDevToolsBridgeServer,
+} from '../../../lib/react/devtools/bridge/server'
 
-createSocketBridgeWallServer()
+// createSocketBridgeWallServer()
+
+createReduxDevToolsBridgeServer()
