@@ -27,7 +27,7 @@ export interface EditorProps {
   types?: Record<string, string>
   tsconfig?: CompilerOptions
   theme?: ThemeNames
-  loaderConfig?: Parameters<typeof loader.config>[0]
+  loaderConfig?: Parameters<typeof loader.config>[0] & { themeUri?: string }
 }
 
 export const Editor = React.forwardRef<EditorAPI, EditorProps>(
