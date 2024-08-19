@@ -6,7 +6,7 @@
  */
 import loader from '@monaco-editor/loader'
 
-import { KEYS, ThemesUri } from '../constants'
+import { KEYS, DefaultThemesUri } from '../constants'
 import {
   CompilerOptions,
   EditorOptions,
@@ -34,7 +34,7 @@ export async function createEditor(
   editorContainer: HTMLElement,
   modalFiles: ModalFiles,
   options: EditorOptions = {},
-  loaderConfig?: Parameters<typeof loader.config>[0]
+  loaderConfig?: Parameters<typeof loader.config>[0] & { themeUri: string }
 ) {
   loaderConfig && loader.config(loaderConfig)
 
@@ -166,10 +166,14 @@ export async function createEditor(
     editor._themeService._knownThemes.has(theme)
 
   const getThemeList = () =>
-    fetch(`${ThemesUri}themelist.json`).then(res => res.json())
+    fetch(`${loaderConfig?.themeUri || DefaultThemesUri}themelist.json`).then(
+      res => res.json()
+    )
 
   const getThemeConfig = (themeFile: string) =>
-    fetch(`${ThemesUri}${themeFile}.json`).then(res => res.json())
+    fetch(
+      `${loaderConfig?.themeUri || DefaultThemesUri}${themeFile}.json`
+    ).then(res => res.json())
 
   const setTheme = async (themeName: ThemeNames) => {
     if (hasTheme(themeName)) {
