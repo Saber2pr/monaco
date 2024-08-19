@@ -34,7 +34,7 @@ export async function createEditor(
   editorContainer: HTMLElement,
   modalFiles: ModalFiles,
   options: EditorOptions = {},
-  loaderConfig?: Parameters<typeof loader.config>[0] & { themeUri: string }
+  loaderConfig?: Parameters<typeof loader.config>[0] & { themeUri?: string }
 ) {
   loaderConfig && loader.config(loaderConfig)
 
