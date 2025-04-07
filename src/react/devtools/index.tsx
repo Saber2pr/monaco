@@ -84,6 +84,7 @@ export function DevTools({
 
   return (
     <Container>
+      {/* @ts-ignore */}
       {ReactDevTools ? (
         <ReactDevTools
           {...props}
